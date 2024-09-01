@@ -15,9 +15,9 @@
 		43608C132C84E3AC00960C96 /* PortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C122C84E3AC00960C96 /* PortfolioTests.swift */; };
 		43608C1D2C84E3AC00960C96 /* PortfolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1C2C84E3AC00960C96 /* PortfolioUITests.swift */; };
 		43608C1F2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */; };
-		43608C2C2C84E3E500960C96 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 43608C2B2C84E3E500960C96 /* Config.xcconfig */; };
 		43608C2E2C84E40500960C96 /* GenAiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C2D2C84E40500960C96 /* GenAiService.swift */; };
-		43608C332C84E49700960C96 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 43608C322C84E49700960C96 /* GoogleGenerativeAI */; };
+		43F0379D2C84E7C60057958B /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 43F0379C2C84E7C60057958B /* Networking */; };
+		43F037A02C84E7D90057958B /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 43F0379F2C84E7D90057958B /* GoogleGenerativeAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +52,7 @@
 		43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		43608C2B2C84E3E500960C96 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		43608C2D2C84E40500960C96 /* GenAiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenAiService.swift; sourceTree = "<group>"; };
+		43E8B4A02C84F0CA00C3C16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43608C332C84E49700960C96 /* GoogleGenerativeAI in Frameworks */,
+				43F0379D2C84E7C60057958B /* Networking in Frameworks */,
+				43F037A02C84E7D90057958B /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +106,7 @@
 		43608BFD2C84E3AB00960C96 /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
+				43E8B4A02C84F0CA00C3C16F /* Info.plist */,
 				43608C2B2C84E3E500960C96 /* Config.xcconfig */,
 				43608BFE2C84E3AB00960C96 /* PortfolioApp.swift */,
 				43608C002C84E3AB00960C96 /* ContentView.swift */,
@@ -165,7 +168,8 @@
 			);
 			name = Portfolio;
 			packageProductDependencies = (
-				43608C322C84E49700960C96 /* GoogleGenerativeAI */,
+				43F0379C2C84E7C60057958B /* Networking */,
+				43F0379F2C84E7D90057958B /* GoogleGenerativeAI */,
 			);
 			productName = Portfolio;
 			productReference = 43608BFB2C84E3AB00960C96 /* Portfolio.app */;
@@ -240,8 +244,8 @@
 			);
 			mainGroup = 43608BF22C84E3AB00960C96;
 			packageReferences = (
-				43608C2F2C84E46600960C96 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
-				43608C302C84E47800960C96 /* XCLocalSwiftPackageReference "../../Networking" */,
+				43F0379B2C84E7C60057958B /* XCLocalSwiftPackageReference "../Networking" */,
+				43F0379E2C84E7D90057958B /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 			);
 			productRefGroup = 43608BFC2C84E3AB00960C96 /* Products */;
 			projectDirPath = "";
@@ -260,7 +264,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				43608C092C84E3AC00960C96 /* Preview Assets.xcassets in Resources */,
-				43608C2C2C84E3E500960C96 /* Config.xcconfig in Resources */,
 				43608C052C84E3AC00960C96 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +445,7 @@
 		};
 		43608C232C84E3AC00960C96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43608C2B2C84E3E500960C96 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -453,6 +457,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Portfolio/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -480,6 +485,7 @@
 		};
 		43608C242C84E3AC00960C96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43608C2B2C84E3E500960C96 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -491,6 +497,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Portfolio/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -518,6 +525,7 @@
 		};
 		43608C262C84E3AC00960C96 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43608C2B2C84E3E500960C96 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -541,6 +549,7 @@
 		};
 		43608C272C84E3AC00960C96 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43608C2B2C84E3E500960C96 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -648,14 +657,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		43608C302C84E47800960C96 /* XCLocalSwiftPackageReference "../../Networking" */ = {
+		43F0379B2C84E7C60057958B /* XCLocalSwiftPackageReference "../Networking" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../Networking;
+			relativePath = ../Networking;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		43608C2F2C84E46600960C96 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+		43F0379E2C84E7D90057958B /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google-gemini/generative-ai-swift.git";
 			requirement = {
@@ -666,9 +675,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		43608C322C84E49700960C96 /* GoogleGenerativeAI */ = {
+		43F0379C2C84E7C60057958B /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 43608C2F2C84E46600960C96 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = Networking;
+		};
+		43F0379F2C84E7D90057958B /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43F0379E2C84E7D90057958B /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
 			productName = GoogleGenerativeAI;
 		};
 /* End XCSwiftPackageProductDependency section */
