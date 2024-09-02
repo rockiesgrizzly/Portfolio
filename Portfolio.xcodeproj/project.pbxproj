@@ -16,6 +16,15 @@
 		43608C1D2C84E3AC00960C96 /* PortfolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1C2C84E3AC00960C96 /* PortfolioUITests.swift */; };
 		43608C1F2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */; };
 		43608C2E2C84E40500960C96 /* GenAiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C2D2C84E40500960C96 /* GenAiService.swift */; };
+		43E8B4B12C862DFF00C3C16F /* ArchitectureDomainGuidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4B02C862DFF00C3C16F /* ArchitectureDomainGuidance.swift */; };
+		43E8B4B32C862E7C00C3C16F /* ArchitectureDataGuidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4B22C862E7C00C3C16F /* ArchitectureDataGuidance.swift */; };
+		43E8B4B52C862F0600C3C16F /* ArchitecturePresentationGuidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4B42C862F0600C3C16F /* ArchitecturePresentationGuidance.swift */; };
+		43E8B4B82C86303600C3C16F /* GenInteractionPromptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4B72C86303600C3C16F /* GenInteractionPromptModel.swift */; };
+		43E8B4BD2C86308400C3C16F /* GenInteractionPromptRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4BC2C86308400C3C16F /* GenInteractionPromptRepository.swift */; };
+		43E8B4BF2C8630AD00C3C16F /* GenInteractionGetAiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4BE2C8630AD00C3C16F /* GenInteractionGetAiResponse.swift */; };
+		43E8B4C12C86313000C3C16F /* GenInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4C02C86313000C3C16F /* GenInteractionView.swift */; };
+		43E8B4C32C86313E00C3C16F /* GenInteractionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4C22C86313E00C3C16F /* GenInteractionViewModel.swift */; };
+		43E8B4C52C8631BE00C3C16F /* ArchitectureCoreGuidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4C42C8631BE00C3C16F /* ArchitectureCoreGuidance.swift */; };
 		43F0379D2C84E7C60057958B /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 43F0379C2C84E7C60057958B /* Networking */; };
 		43F037A02C84E7D90057958B /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 43F0379F2C84E7D90057958B /* GoogleGenerativeAI */; };
 /* End PBXBuildFile section */
@@ -52,7 +61,16 @@
 		43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		43608C2B2C84E3E500960C96 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		43608C2D2C84E40500960C96 /* GenAiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenAiService.swift; sourceTree = "<group>"; };
-		43E8B4A02C84F0CA00C3C16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		43E8B4A02C84F0CA00C3C16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43E8B4B02C862DFF00C3C16F /* ArchitectureDomainGuidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureDomainGuidance.swift; sourceTree = "<group>"; };
+		43E8B4B22C862E7C00C3C16F /* ArchitectureDataGuidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureDataGuidance.swift; sourceTree = "<group>"; };
+		43E8B4B42C862F0600C3C16F /* ArchitecturePresentationGuidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitecturePresentationGuidance.swift; sourceTree = "<group>"; };
+		43E8B4B72C86303600C3C16F /* GenInteractionPromptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenInteractionPromptModel.swift; sourceTree = "<group>"; };
+		43E8B4BC2C86308400C3C16F /* GenInteractionPromptRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenInteractionPromptRepository.swift; sourceTree = "<group>"; };
+		43E8B4BE2C8630AD00C3C16F /* GenInteractionGetAiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenInteractionGetAiResponse.swift; sourceTree = "<group>"; };
+		43E8B4C02C86313000C3C16F /* GenInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenInteractionView.swift; sourceTree = "<group>"; };
+		43E8B4C22C86313E00C3C16F /* GenInteractionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenInteractionViewModel.swift; sourceTree = "<group>"; };
+		43E8B4C42C8631BE00C3C16F /* ArchitectureCoreGuidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureCoreGuidance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				43608BFD2C84E3AB00960C96 /* Portfolio */,
-				43608C112C84E3AC00960C96 /* PortfolioTests */,
-				43608C1B2C84E3AC00960C96 /* PortfolioUITests */,
+				43E8B4AD2C854DA200C3C16F /* Tests */,
 				43608BFC2C84E3AB00960C96 /* Products */,
 				43608C312C84E49700960C96 /* Frameworks */,
 			);
@@ -106,15 +123,10 @@
 		43608BFD2C84E3AB00960C96 /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
-				43E8B4A02C84F0CA00C3C16F /* Info.plist */,
-				43608C2B2C84E3E500960C96 /* Config.xcconfig */,
-				43608BFE2C84E3AB00960C96 /* PortfolioApp.swift */,
-				43608C002C84E3AB00960C96 /* ContentView.swift */,
-				43608C2D2C84E40500960C96 /* GenAiService.swift */,
-				43608C022C84E3AB00960C96 /* Item.swift */,
-				43608C042C84E3AC00960C96 /* Assets.xcassets */,
-				43608C062C84E3AC00960C96 /* Portfolio.entitlements */,
-				43608C072C84E3AC00960C96 /* Preview Content */,
+				43E8B4A12C84F9CD00C3C16F /* Core */,
+				43E8B4A32C84FA4000C3C16F /* Domain */,
+				43E8B4A22C84F9FB00C3C16F /* Presentation */,
+				43E8B4A52C84FA5200C3C16F /* Data */,
 			);
 			path = Portfolio;
 			sourceTree = "<group>";
@@ -127,12 +139,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		43608C112C84E3AC00960C96 /* PortfolioTests */ = {
+		43608C112C84E3AC00960C96 /* PortfolioUnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				43608C122C84E3AC00960C96 /* PortfolioTests.swift */,
 			);
-			path = PortfolioTests;
+			path = PortfolioUnitTests;
 			sourceTree = "<group>";
 		};
 		43608C1B2C84E3AC00960C96 /* PortfolioUITests */ = {
@@ -149,6 +161,141 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43E8B4A12C84F9CD00C3C16F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4C42C8631BE00C3C16F /* ArchitectureCoreGuidance.swift */,
+				43E8B4A02C84F0CA00C3C16F /* Info.plist */,
+				43608C2B2C84E3E500960C96 /* Config.xcconfig */,
+				43608BFE2C84E3AB00960C96 /* PortfolioApp.swift */,
+				43608C062C84E3AC00960C96 /* Portfolio.entitlements */,
+				43E8B4A72C84FA6600C3C16F /* Resources */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		43E8B4A22C84F9FB00C3C16F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4B42C862F0600C3C16F /* ArchitecturePresentationGuidance.swift */,
+				43E8B4A82C84FAF200C3C16F /* GenInteraction */,
+				43608C002C84E3AB00960C96 /* ContentView.swift */,
+				43608C022C84E3AB00960C96 /* Item.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		43E8B4A32C84FA4000C3C16F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4B02C862DFF00C3C16F /* ArchitectureDomainGuidance.swift */,
+				43E8B4B62C862FEF00C3C16F /* GenInteraction */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		43E8B4A52C84FA5200C3C16F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4B22C862E7C00C3C16F /* ArchitectureDataGuidance.swift */,
+				43E8B4AB2C84FB5000C3C16F /* Network */,
+				43E8B4AC2C84FB5A00C3C16F /* Common */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		43E8B4A72C84FA6600C3C16F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				43608C072C84E3AC00960C96 /* Preview Content */,
+				43608C042C84E3AC00960C96 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		43E8B4A82C84FAF200C3C16F /* GenInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4A92C84FB0400C3C16F /* View */,
+				43E8B4AA2C84FB1000C3C16F /* ViewModel */,
+			);
+			path = GenInteraction;
+			sourceTree = "<group>";
+		};
+		43E8B4A92C84FB0400C3C16F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4C02C86313000C3C16F /* GenInteractionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43E8B4AA2C84FB1000C3C16F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4C22C86313E00C3C16F /* GenInteractionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43E8B4AB2C84FB5000C3C16F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				43608C2D2C84E40500960C96 /* GenAiService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		43E8B4AC2C84FB5A00C3C16F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		43E8B4AD2C854DA200C3C16F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				43608C112C84E3AC00960C96 /* PortfolioUnitTests */,
+				43608C1B2C84E3AC00960C96 /* PortfolioUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		43E8B4B62C862FEF00C3C16F /* GenInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4BB2C86305800C3C16F /* UseCase */,
+				43E8B4B92C86303E00C3C16F /* Model */,
+				43E8B4BA2C86304800C3C16F /* Repository */,
+			);
+			path = GenInteraction;
+			sourceTree = "<group>";
+		};
+		43E8B4B92C86303E00C3C16F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4B72C86303600C3C16F /* GenInteractionPromptModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43E8B4BA2C86304800C3C16F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4BC2C86308400C3C16F /* GenInteractionPromptRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		43E8B4BB2C86305800C3C16F /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				43E8B4BE2C8630AD00C3C16F /* GenInteractionGetAiResponse.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,9 +437,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				43608C012C84E3AB00960C96 /* ContentView.swift in Sources */,
+				43E8B4C12C86313000C3C16F /* GenInteractionView.swift in Sources */,
+				43E8B4C32C86313E00C3C16F /* GenInteractionViewModel.swift in Sources */,
+				43E8B4B52C862F0600C3C16F /* ArchitecturePresentationGuidance.swift in Sources */,
+				43E8B4B32C862E7C00C3C16F /* ArchitectureDataGuidance.swift in Sources */,
+				43E8B4BD2C86308400C3C16F /* GenInteractionPromptRepository.swift in Sources */,
+				43E8B4B12C862DFF00C3C16F /* ArchitectureDomainGuidance.swift in Sources */,
 				43608C032C84E3AB00960C96 /* Item.swift in Sources */,
 				43608C2E2C84E40500960C96 /* GenAiService.swift in Sources */,
+				43E8B4C52C8631BE00C3C16F /* ArchitectureCoreGuidance.swift in Sources */,
+				43E8B4BF2C8630AD00C3C16F /* GenInteractionGetAiResponse.swift in Sources */,
 				43608BFF2C84E3AB00960C96 /* PortfolioApp.swift in Sources */,
+				43E8B4B82C86303600C3C16F /* GenInteractionPromptModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
