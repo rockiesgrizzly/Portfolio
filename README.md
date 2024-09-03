@@ -1,2 +1,2 @@
 # Portfolio
-an app to demonstrate various iOS solutions
+an example app architected with a Clean Swift approach to demonstrate various iOS solutions
