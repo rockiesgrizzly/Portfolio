@@ -24,7 +24,11 @@ struct GenAiView: View {
                     }
             } else if let response = viewModel.response?.response {
                 Text(response)
-                // exit button here
+                Button(action: {
+                    viewModel.userExitedResponse()
+                }) {
+                    Image(systemName: "xmark")
+                }
             }
  
             Spacer()

@@ -27,6 +27,11 @@ import Foundation
         }
     }
     
+    func userExitedResponse() {
+        userPromptText = ""
+        response = nil
+    }
+    
     func respond(toPrompt prompt: String) async throws {
         isLoading = true
 
