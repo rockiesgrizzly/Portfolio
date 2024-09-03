@@ -219,8 +219,8 @@
 		43E8B4A52C84FA5200C3C16F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				43E8B4C82C86352C00C3C16F /* GenAi */,
 				43E8B4B22C862E7C00C3C16F /* ArchitectureDataGuidance.swift */,
+				43E8B4C82C86352C00C3C16F /* GenAi */,
 				43E8B4AB2C84FB5000C3C16F /* Network */,
 			);
 			path = Data;
@@ -282,7 +282,6 @@
 			children = (
 				43E8B4BB2C86305800C3C16F /* UseCase */,
 				43E8B4B92C86303E00C3C16F /* Model */,
-				43E8B4BA2C86304800C3C16F /* Repository */,
 			);
 			path = GenAi;
 			sourceTree = "<group>";
@@ -295,13 +294,6 @@
 				43E3DCD32C86432A00444235 /* GenAiResponseEntryModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		43E8B4BA2C86304800C3C16F /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		43E8B4BB2C86305800C3C16F /* UseCase */ = {

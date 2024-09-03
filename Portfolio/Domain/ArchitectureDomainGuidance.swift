@@ -12,8 +12,7 @@
  Here, the core business logic and rules reside. It defines how key functions work, reflecting the app’s unique purpose. This layer remains independent of external factors like user interfaces or databases. It consists of two vital parts:
  
  1. Use Cases
- 2. Entities
- 3. Models
+ 2. Models
  
  Model is a representation of real-world objects related to the problem. To put it simply, models are like the main characters in a story.
  

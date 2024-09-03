@@ -8,13 +8,23 @@
 import Foundation
 
 @MainActor class GenAiViewModel: ObservableObject {
-    @Published var prompt: GenAiPromptModel?
-    @Published var response: GenAiResponseEntryModel?
+    @Published var userPromptText = ""
+    var response: GenAiResponseEntryModel?
     @Published var isLoading = false
     @Published var errorMessage: String?
     
     var userInvitationText: String {
         "How can artificial intelligence assist you?"
+    }
+    
+    var promptDefaultText: String {
+        "Enter your prompt here."
+    }
+    
+    func userSubmittedPromptText() {
+        Task {
+            try await respond(toPrompt: userPromptText)
+        }
     }
     
     func respond(toPrompt prompt: String) async throws {

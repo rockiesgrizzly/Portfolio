@@ -12,8 +12,12 @@ import SwiftData
 struct PortfolioApp: App {
     var body: some Scene {
         WindowGroup {
-            GenAiView()
+            TabView {
+                GenAiView()
+                        .tabItem {
+                            Label("GenAi SwiftUI", systemImage: "house")
+                        }
+                    }
         }
-//        .modelContainer(sharedModelContainer)
     }
 }
