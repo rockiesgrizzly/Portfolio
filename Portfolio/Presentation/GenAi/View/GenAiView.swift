@@ -15,13 +15,16 @@ struct GenAiView: View {
             Spacer()
             if viewModel.isLoading {
                 ProgressView()
-            } else {
-                Text(viewModel.response?.response ?? viewModel.userInvitationText)
+            } else if viewModel.response?.response == nil {
+                Text(viewModel.userInvitationText)
                 TextField(viewModel.promptDefaultText, text: $viewModel.userPromptText)
                     .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
                     .onSubmit {
                         viewModel.userSubmittedPromptText()
                     }
+            } else if let response = viewModel.response?.response {
+                Text(response)
+                // exit button here
             }
  
             Spacer()
