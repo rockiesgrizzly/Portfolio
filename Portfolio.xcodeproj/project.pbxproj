@@ -16,7 +16,7 @@
 		43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C2D2C84E40500960C96 /* GeminiService.swift */; };
 		43E3DCD12C86429B00444235 /* GenAiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD02C86429B00444235 /* GenAiResponseModel.swift */; };
 		43E3DCD42C86432A00444235 /* GenAiResponseEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD32C86432A00444235 /* GenAiResponseEntryModel.swift */; };
-		43E3DCD62C86436100444235 /* GenAiResponseRepositoryProtocol.Swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD52C86436100444235 /* GenAiResponseRepositoryProtocol.Swift */; };
+		43E3DCD62C86436100444235 /* GenAiRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD52C86436100444235 /* GenAiRepositoryProtocol.swift */; };
 		43E3DCD82C8643D500444235 /* GenAiResponseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD72C8643D500444235 /* GenAiResponseRepository.swift */; };
 		43E8B4B12C862DFF00C3C16F /* ArchitectureDomainGuidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4B02C862DFF00C3C16F /* ArchitectureDomainGuidance.swift */; };
 		43E8B4B32C862E7C00C3C16F /* ArchitectureDataGuidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4B22C862E7C00C3C16F /* ArchitectureDataGuidance.swift */; };
@@ -26,7 +26,7 @@
 		43E8B4C12C86313000C3C16F /* GenAiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4C02C86313000C3C16F /* GenAiView.swift */; };
 		43E8B4C32C86313E00C3C16F /* GenAiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4C22C86313E00C3C16F /* GenAiViewModel.swift */; };
 		43E8B4C52C8631BE00C3C16F /* ArchitectureCoreGuidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4C42C8631BE00C3C16F /* ArchitectureCoreGuidance.swift */; };
-		43E8B4CB2C86355700C3C16F /* GenAiDataSoureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4CA2C86355700C3C16F /* GenAiDataSoureProtocol.swift */; };
+		43E8B4CB2C86355700C3C16F /* GenAiDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4CA2C86355700C3C16F /* GenAiDataSourceProtocol.swift */; };
 		43E8B4D02C8638E200C3C16F /* GenAiGetResponseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E8B4CF2C8638E200C3C16F /* GenAiGetResponseUseCase.swift */; };
 		43F0379D2C84E7C60057958B /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 43F0379C2C84E7C60057958B /* Networking */; };
 		43F037A02C84E7D90057958B /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 43F0379F2C84E7D90057958B /* GoogleGenerativeAI */; };
@@ -64,7 +64,7 @@
 		43608C2D2C84E40500960C96 /* GeminiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		43E3DCD02C86429B00444235 /* GenAiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiResponseModel.swift; sourceTree = "<group>"; };
 		43E3DCD32C86432A00444235 /* GenAiResponseEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiResponseEntryModel.swift; sourceTree = "<group>"; };
-		43E3DCD52C86436100444235 /* GenAiResponseRepositoryProtocol.Swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiResponseRepositoryProtocol.Swift; sourceTree = "<group>"; };
+		43E3DCD52C86436100444235 /* GenAiRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiRepositoryProtocol.swift; sourceTree = "<group>"; };
 		43E3DCD72C8643D500444235 /* GenAiResponseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiResponseRepository.swift; sourceTree = "<group>"; };
 		43E8B4A02C84F0CA00C3C16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43E8B4B02C862DFF00C3C16F /* ArchitectureDomainGuidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureDomainGuidance.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		43E8B4C02C86313000C3C16F /* GenAiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiView.swift; sourceTree = "<group>"; };
 		43E8B4C22C86313E00C3C16F /* GenAiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiViewModel.swift; sourceTree = "<group>"; };
 		43E8B4C42C8631BE00C3C16F /* ArchitectureCoreGuidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureCoreGuidance.swift; sourceTree = "<group>"; };
-		43E8B4CA2C86355700C3C16F /* GenAiDataSoureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiDataSoureProtocol.swift; sourceTree = "<group>"; };
+		43E8B4CA2C86355700C3C16F /* GenAiDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiDataSourceProtocol.swift; sourceTree = "<group>"; };
 		43E8B4CF2C8638E200C3C16F /* GenAiGetResponseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiGetResponseUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -325,8 +325,8 @@
 		43E8B4C92C86353C00C3C16F /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				43E8B4CA2C86355700C3C16F /* GenAiDataSoureProtocol.swift */,
-				43E3DCD52C86436100444235 /* GenAiResponseRepositoryProtocol.Swift */,
+				43E8B4CA2C86355700C3C16F /* GenAiDataSourceProtocol.swift */,
+				43E3DCD52C86436100444235 /* GenAiRepositoryProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -477,9 +477,9 @@
 				43E8B4BD2C86308400C3C16F /* GenAiDataSource.swift in Sources */,
 				43E8B4B12C862DFF00C3C16F /* ArchitectureDomainGuidance.swift in Sources */,
 				43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */,
-				43E8B4CB2C86355700C3C16F /* GenAiDataSoureProtocol.swift in Sources */,
+				43E8B4CB2C86355700C3C16F /* GenAiDataSourceProtocol.swift in Sources */,
 				43E8B4C52C8631BE00C3C16F /* ArchitectureCoreGuidance.swift in Sources */,
-				43E3DCD62C86436100444235 /* GenAiResponseRepositoryProtocol.Swift in Sources */,
+				43E3DCD62C86436100444235 /* GenAiRepositoryProtocol.swift in Sources */,
 				43E3DCD82C8643D500444235 /* GenAiResponseRepository.swift in Sources */,
 				43E8B4D02C8638E200C3C16F /* GenAiGetResponseUseCase.swift in Sources */,
 				43608BFF2C84E3AB00960C96 /* PortfolioApp.swift in Sources */,

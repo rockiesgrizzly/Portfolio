@@ -13,7 +13,11 @@ import Foundation
     @Published var isLoading = false
     @Published var errorMessage: String?
     
-    func getResponse(prompt: String) async throws {
+    var userInvitationText: String {
+        "How can artificial intelligence assist you?"
+    }
+    
+    func respond(toPrompt prompt: String) async throws {
         isLoading = true
 
         let promptModel = GenAiPromptModel(prompt: prompt)

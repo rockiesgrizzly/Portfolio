@@ -7,11 +7,9 @@
 
 import Foundation
 
-struct GenAiResponseRepository {
-    
-}
+struct GenAiResponseRepository { }
 
-extension GenAiResponseRepository: GenAiResponseRepositoryProtocol {
+extension GenAiResponseRepository: GenAiRepositoryProtocol {
     static func getAiResponse(promptModel: GenAiPromptModel) async throws -> GenAiResponseEntryModel {
         let response = try await GenAiDataSource.getAiResponse(prompt: promptModel.prompt)
         return GenAiResponseEntryModel(response: response.response)
