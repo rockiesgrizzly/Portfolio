@@ -18,7 +18,9 @@ struct GeminiService {
         guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "GOOGLE_GEN_AI_KEY") as? String else { assertionFailure("No api key found. If you're testing this code, you'll need to grab an API key and drop it in Info.plist"); return "" }
         return apiKey
     }
-    
+}
+
+extension GeminiService: GenAiService {
     static func response(toPrompt prompt: String) async throws -> String? {
         guard let content = try await model?.generateContent([prompt]) else { return nil }
         return content.text

@@ -1,5 +1,5 @@
 {
-  "originHash" : "b5f9c9ec06535b3f58b6c329312abe44b719b84fa8bf9423a019b3c2ffa87c13",
+  "originHash" : "6291ead26ab81378d3f264932d48795efb5f106705fa6951407f4542096b5f3e",
   "pins" : [
     {
       "identity" : "generative-ai-swift",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "44b8ce120425f9cf53ca756f3434ca2c2696f8bd",
         "version" : "0.5.6"
+      }
+    },
+    {
+      "identity" : "openaiswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adamrushy/OpenAISwift.git",
+      "state" : {
+        "revision" : "ca66fb720d6ebb657601db5a0852b830ae310a4c",
+        "version" : "1.4.1"
       }
     }
   ],

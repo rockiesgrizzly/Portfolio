@@ -7,13 +7,16 @@
 
 import Foundation
 
-struct GenAiDataSource {
-    typealias GenAiSource = GeminiService
-}
-
-extension GenAiDataSource: GenAiDataSourceProtocol {
-    static func getAiResponse(prompt: String) async throws -> GenAiResponseModel {
-        let response = try await GenAiSource.response(toPrompt: prompt)
-        return GenAiResponseModel(response: response)
+struct GenAiDataSource: GenAiDataSourceProtocol {
+    static func getAiResponse(promptModel: GenAiPromptModel) async throws -> GenAiResponseModel {
+        switch promptModel.service {
+        case .ChatGPT:
+            let response = try await OpenAiService.response(toPrompt: promptModel.prompt)
+            return GenAiResponseModel(response: response)
+        case .Gemini:
+            let response = try await GeminiService.response(toPrompt: promptModel.prompt)
+            return GenAiResponseModel(response: response)
+        }
     }
 }
+ 

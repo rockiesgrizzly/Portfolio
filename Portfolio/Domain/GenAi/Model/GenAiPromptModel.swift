@@ -9,4 +9,5 @@ import Foundation
 
 struct GenAiPromptModel {
     let prompt: String
+    let service: GenAiServiceOptions
 }

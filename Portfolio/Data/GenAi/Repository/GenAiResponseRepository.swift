@@ -11,7 +11,7 @@ struct GenAiResponseRepository { }
 
 extension GenAiResponseRepository: GenAiRepositoryProtocol {
     static func getAiResponse(promptModel: GenAiPromptModel) async throws -> GenAiResponseEntryModel {
-        let response = try await GenAiDataSource.getAiResponse(prompt: promptModel.prompt)
+        let response = try await GenAiDataSource.getAiResponse(promptModel: promptModel)
         return GenAiResponseEntryModel(response: response.response)
     }
 }

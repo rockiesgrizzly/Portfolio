@@ -6,5 +6,5 @@
 //
 
 protocol GenAiDataSourceProtocol {
-    static func getAiResponse(prompt: String) async throws -> GenAiResponseModel
+    static func getAiResponse(promptModel: GenAiPromptModel) async throws -> GenAiResponseModel
 }

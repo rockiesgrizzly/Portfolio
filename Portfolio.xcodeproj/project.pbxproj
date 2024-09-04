@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		433369F42C87F455004D64A4 /* GenAiServiceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */; };
+		433369F62C87F63E004D64A4 /* OpenAiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F52C87F63E004D64A4 /* OpenAiService.swift */; };
+		433369F82C87F6CD004D64A4 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 433369F72C87F6CD004D64A4 /* OpenAISwift */; };
+		433369FA2C8800AC004D64A4 /* GenAiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F92C8800AC004D64A4 /* GenAiServiceProtocol.swift */; };
 		43608BFF2C84E3AB00960C96 /* PortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608BFE2C84E3AB00960C96 /* PortfolioApp.swift */; };
 		43608C052C84E3AC00960C96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43608C042C84E3AC00960C96 /* Assets.xcassets */; };
 		43608C092C84E3AC00960C96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43608C082C84E3AC00960C96 /* Preview Assets.xcassets */; };
@@ -50,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceOptions.swift; sourceTree = "<group>"; };
+		433369F52C87F63E004D64A4 /* OpenAiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAiService.swift; sourceTree = "<group>"; };
+		433369F92C8800AC004D64A4 /* GenAiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceProtocol.swift; sourceTree = "<group>"; };
 		43608BFB2C84E3AB00960C96 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43608BFE2C84E3AB00960C96 /* PortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioApp.swift; sourceTree = "<group>"; };
 		43608C042C84E3AC00960C96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43F0379D2C84E7C60057958B /* Networking in Frameworks */,
+				433369F82C87F6CD004D64A4 /* OpenAISwift in Frameworks */,
 				43F037A02C84E7D90057958B /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				43608C2D2C84E40500960C96 /* GeminiService.swift */,
+				433369F52C87F63E004D64A4 /* OpenAiService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 				43E3DCD02C86429B00444235 /* GenAiResponseModel.swift */,
 				43E8B4B72C86303600C3C16F /* GenAiPromptModel.swift */,
 				43E3DCD32C86432A00444235 /* GenAiResponseEntryModel.swift */,
+				433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +329,7 @@
 			children = (
 				43E8B4CA2C86355700C3C16F /* GenAiDataSourceProtocol.swift */,
 				43E3DCD52C86436100444235 /* GenAiRepositoryProtocol.swift */,
+				433369F92C8800AC004D64A4 /* GenAiServiceProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -342,6 +353,7 @@
 			packageProductDependencies = (
 				43F0379C2C84E7C60057958B /* Networking */,
 				43F0379F2C84E7D90057958B /* GoogleGenerativeAI */,
+				433369F72C87F6CD004D64A4 /* OpenAISwift */,
 			);
 			productName = Portfolio;
 			productReference = 43608BFB2C84E3AB00960C96 /* Portfolio.app */;
@@ -418,6 +430,7 @@
 			packageReferences = (
 				43F0379B2C84E7C60057958B /* XCLocalSwiftPackageReference "../Networking" */,
 				43F0379E2C84E7D90057958B /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				433369F22C87F403004D64A4 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 43608BFC2C84E3AB00960C96 /* Products */;
 			projectDirPath = "";
@@ -466,13 +479,16 @@
 				43E8B4B52C862F0600C3C16F /* ArchitecturePresentationGuidance.swift in Sources */,
 				43E3DCD12C86429B00444235 /* GenAiResponseModel.swift in Sources */,
 				43E8B4B32C862E7C00C3C16F /* ArchitectureDataGuidance.swift in Sources */,
+				433369FA2C8800AC004D64A4 /* GenAiServiceProtocol.swift in Sources */,
 				43E8B4BD2C86308400C3C16F /* GenAiDataSource.swift in Sources */,
 				43E8B4B12C862DFF00C3C16F /* ArchitectureDomainGuidance.swift in Sources */,
 				43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */,
 				43E8B4CB2C86355700C3C16F /* GenAiDataSourceProtocol.swift in Sources */,
+				433369F62C87F63E004D64A4 /* OpenAiService.swift in Sources */,
 				43E8B4C52C8631BE00C3C16F /* ArchitectureCoreGuidance.swift in Sources */,
 				43E3DCD62C86436100444235 /* GenAiRepositoryProtocol.swift in Sources */,
 				43E3DCD82C8643D500444235 /* GenAiResponseRepository.swift in Sources */,
+				433369F42C87F455004D64A4 /* GenAiServiceOptions.swift in Sources */,
 				43E8B4D02C8638E200C3C16F /* GenAiGetResponseUseCase.swift in Sources */,
 				43608BFF2C84E3AB00960C96 /* PortfolioApp.swift in Sources */,
 				43E3DCD42C86432A00444235 /* GenAiResponseEntryModel.swift in Sources */,
@@ -848,6 +864,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		433369F22C87F403004D64A4 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
 		43F0379E2C84E7D90057958B /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google-gemini/generative-ai-swift.git";
@@ -859,6 +883,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		433369F72C87F6CD004D64A4 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 433369F22C87F403004D64A4 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
 		43F0379C2C84E7C60057958B /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
