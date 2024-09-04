@@ -35,7 +35,7 @@ import Foundation
     func respond(toPrompt prompt: String) async throws {
         isLoading = true
 
-        let promptModel = GenAiPromptModel(prompt: prompt, service: .ChatGPT) // TODO: replace
+        let promptModel = GenAiPromptModel(prompt: prompt, service: .Gemini) // TODO: replace
         let result = try await GenAiGetUseCaseImplementation.execute(promptModel: promptModel)
         
         switch result {
