@@ -21,6 +21,8 @@ class GenAiUiView: UIView {
     init(viewModel: GenAiViewModel, frame: CGRect = .zero) {
         self.viewModel = viewModel
         super.init(frame: frame)
+        
+        setupUI()
     }
 
     required init?(coder: NSCoder) {
@@ -43,8 +45,10 @@ class GenAiUiView: UIView {
     // MARK: - Private - Setup
     private func setupUI() {
         addSubview(activityIndicator)
+        addSubview(contentView)
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),

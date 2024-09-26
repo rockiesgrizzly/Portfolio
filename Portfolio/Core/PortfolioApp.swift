@@ -15,11 +15,11 @@ struct PortfolioApp: App {
             TabView {
                 GenAiView()
                     .tabItem {
-                        Label("GenAi SwiftUI", systemImage: "house")
+                        Label("SwiftUI GenAi", systemImage: "square")
                     }
                 GenAiUiViewRepresentable()
                     .tabItem {
-                        Label("GenAi UIKit", systemImage: "circle")
+                        Label("UIKit GenAi", systemImage: "circle")
                     }
             }
         }

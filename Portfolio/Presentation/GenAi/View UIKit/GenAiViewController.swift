@@ -11,15 +11,6 @@ class GenAiViewController: UIViewController {
     private var viewModel = GenAiViewModel()
     
     // MARK: - Lifecycle
-    convenience init() {
-        self.init()
-    }
-    
-    required init?(coder: NSCoder) {
-        assertionFailure("GenAiViewController required init?(coder... not implemented")
-        return nil
-    }
-    
     override func loadView() {
         let genAiUiView = GenAiUiView(viewModel: viewModel)
         view = genAiUiView
