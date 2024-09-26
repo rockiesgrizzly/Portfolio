@@ -11,12 +11,14 @@ struct GenAiView: View {
     @StateObject var viewModel = GenAiViewModel()
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16){
+        VStack(alignment: .center, spacing: 24){
             if viewModel.isLoading {
                 Spacer()
                 ProgressView()
             } else if viewModel.response?.response == nil {
-                Spacer(minLength: 24)
+                Spacer()
+                Text("SwiftUI")
+                    .font(Font(UIFont.italicSystemFont(ofSize: 12)))
                 Text(viewModel.userInvitationText)
                 TextField(viewModel.promptDefaultText, text: $viewModel.userPromptText)
                     .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))

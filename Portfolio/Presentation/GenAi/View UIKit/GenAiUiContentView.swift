@@ -14,6 +14,13 @@ class GenAiUiContentView: UIView {
         }
     }
     
+    private let typeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "UIKit"
+        label.font = UIFont.italicSystemFont(ofSize: 12)
+        return label
+    }()
+    
     private let topLabel: UILabel = {
         let label = UILabel()
         return label
@@ -21,6 +28,7 @@ class GenAiUiContentView: UIView {
     
     private let textField: UITextField = {
         let textField = UITextField()
+        textField.textAlignment = .left
         return textField
     }()
     
@@ -28,6 +36,9 @@ class GenAiUiContentView: UIView {
     init(viewModel: GenAiViewModel, frame: CGRect = .zero) {
         self.viewModel = viewModel
         super.init(frame: frame)
+        
+        setupSubviews()
+        update(with: viewModel)
     }
 
     required init?(coder: NSCoder) {
@@ -39,18 +50,26 @@ class GenAiUiContentView: UIView {
     private func setupSubviews() {
         textField.delegate = self
         
+        addSubview(typeLabel)
         addSubview(topLabel)
         addSubview(textField)
         
+        typeLabel.translatesAutoresizingMaskIntoConstraints = false
         topLabel.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
         
+        let margin: CGFloat = 24
+        
         NSLayoutConstraint.activate([
-            topLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            typeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            typeLabel.bottomAnchor.constraint(equalTo: topLabel.topAnchor, constant: -24),
+            topLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -98),
             topLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            topLabel.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: 16),
+            textField.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 24),
+            textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
             textField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            textField.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -margin)
         ])
     }
     
