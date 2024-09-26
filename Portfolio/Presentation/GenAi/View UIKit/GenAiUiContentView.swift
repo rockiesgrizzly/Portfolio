@@ -5,14 +5,11 @@
 //  Created by joshmac on 9/25/24.
 //
 
+import Combine
 import UIKit
 
 class GenAiUiContentView: UIView {
-    var viewModel: GenAiViewModel {
-        didSet {
-            update(with: viewModel)
-        }
-    }
+    var viewModel: GenAiViewModel
     
     private let typeLabel: UILabel = {
         let label = UILabel()
@@ -26,17 +23,20 @@ class GenAiUiContentView: UIView {
         return label
     }()
     
-    private let textField: UITextField = {
+    private let userTextField: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .left
         return textField
     }()
+    
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Lifecycle
     init(viewModel: GenAiViewModel, frame: CGRect = .zero) {
         self.viewModel = viewModel
         super.init(frame: frame)
         
+        subscribeToPublishers()
         setupSubviews()
         update(with: viewModel)
     }
@@ -46,17 +46,21 @@ class GenAiUiContentView: UIView {
         return nil
     }
     
+    deinit {
+        cancellables.removeAll()
+    }
+    
     // MARK: - Private
     private func setupSubviews() {
-        textField.delegate = self
+        userTextField.delegate = self
         
         addSubview(typeLabel)
         addSubview(topLabel)
-        addSubview(textField)
+        addSubview(userTextField)
         
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
         topLabel.translatesAutoresizingMaskIntoConstraints = false
-        textField.translatesAutoresizingMaskIntoConstraints = false
+        userTextField.translatesAutoresizingMaskIntoConstraints = false
         
         let margin: CGFloat = 24
         
@@ -65,25 +69,51 @@ class GenAiUiContentView: UIView {
             typeLabel.bottomAnchor.constraint(equalTo: topLabel.topAnchor, constant: -24),
             topLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -98),
             topLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            textField.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 24),
-            textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
-            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
-            textField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            textField.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -margin)
+            userTextField.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 24),
+            userTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+            userTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+            userTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            userTextField.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -margin)
         ])
     }
     
     private func update(with viewModel: GenAiViewModel) {
         topLabel.text = viewModel.userInvitationText
-        textField.placeholder = viewModel.promptDefaultText
+        userTextField.placeholder = viewModel.response?.response ?? viewModel.promptDefaultText
+    }
+    
+    private func subscribeToPublishers() {
+        let userPromptText = viewModel.$userPromptText.sink { [weak self] text in
+            guard let self else { return }
+            
+            if let response = viewModel.response?.response {
+                userTextField.text = response
+            } else {
+                userTextField.placeholder = viewModel.promptDefaultText
+            }
+        }
+        
+        cancellables.insert(userPromptText)
+        
+        let errorMessage = viewModel.$errorMessage.sink { [weak self] errorMessage in
+            guard let self, let errorMessage, !errorMessage.isEmpty else { return }
+            
+            userTextField.text = errorMessage
+        }
+        
+        cancellables.insert(errorMessage)
     }
 }
 
 extension GenAiUiContentView: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        guard let prompt = textField.text else { return }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard textField == userTextField, let prompt = textField.text else { return false }
+
         Task {
             try await viewModel.respond(toPrompt: prompt)
         }
+        
+        textField.resignFirstResponder()
+        return true
     }
 }

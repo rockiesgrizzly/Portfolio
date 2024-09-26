@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class GenAiViewModel: ObservableObject {
     @Published var userPromptText = ""
-    var response: GenAiResponseEntryModel?
+    @Published var response: GenAiResponseEntryModel?
     @Published var isLoading = false
     @Published var errorMessage: String?
     
