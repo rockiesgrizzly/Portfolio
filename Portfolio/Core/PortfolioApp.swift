@@ -14,10 +14,14 @@ struct PortfolioApp: App {
         WindowGroup {
             TabView {
                 GenAiView()
-                        .tabItem {
-                            Label("GenAi SwiftUI", systemImage: "house")
-                        }
+                    .tabItem {
+                        Label("GenAi SwiftUI", systemImage: "house")
                     }
+                GenAiUiViewRepresentable()
+                    .tabItem {
+                        Label("GenAi UIKit", systemImage: "circle")
+                    }
+            }
         }
     }
 }

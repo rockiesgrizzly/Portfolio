@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,10 +11,10 @@
 		433369F62C87F63E004D64A4 /* OpenAiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F52C87F63E004D64A4 /* OpenAiService.swift */; };
 		433369F82C87F6CD004D64A4 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 433369F72C87F6CD004D64A4 /* OpenAISwift */; };
 		433369FA2C8800AC004D64A4 /* GenAiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F92C8800AC004D64A4 /* GenAiServiceProtocol.swift */; };
+		433369FD2C880A8A004D64A4 /* GenAiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369FC2C880A8A004D64A4 /* GenAiServiceTests.swift */; };
 		43608BFF2C84E3AB00960C96 /* PortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608BFE2C84E3AB00960C96 /* PortfolioApp.swift */; };
 		43608C052C84E3AC00960C96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43608C042C84E3AC00960C96 /* Assets.xcassets */; };
 		43608C092C84E3AC00960C96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43608C082C84E3AC00960C96 /* Preview Assets.xcassets */; };
-		43608C132C84E3AC00960C96 /* PortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C122C84E3AC00960C96 /* PortfolioTests.swift */; };
 		43608C1D2C84E3AC00960C96 /* PortfolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1C2C84E3AC00960C96 /* PortfolioUITests.swift */; };
 		43608C1F2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */; };
 		43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C2D2C84E40500960C96 /* GeminiService.swift */; };
@@ -57,13 +57,13 @@
 		433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceOptions.swift; sourceTree = "<group>"; };
 		433369F52C87F63E004D64A4 /* OpenAiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAiService.swift; sourceTree = "<group>"; };
 		433369F92C8800AC004D64A4 /* GenAiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceProtocol.swift; sourceTree = "<group>"; };
+		433369FC2C880A8A004D64A4 /* GenAiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceTests.swift; sourceTree = "<group>"; };
 		43608BFB2C84E3AB00960C96 /* Portfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43608BFE2C84E3AB00960C96 /* PortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioApp.swift; sourceTree = "<group>"; };
 		43608C042C84E3AC00960C96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43608C062C84E3AC00960C96 /* Portfolio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Portfolio.entitlements; sourceTree = "<group>"; };
 		43608C082C84E3AC00960C96 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43608C0E2C84E3AC00960C96 /* PortfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43608C122C84E3AC00960C96 /* PortfolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioTests.swift; sourceTree = "<group>"; };
 		43608C182C84E3AC00960C96 /* PortfolioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43608C1C2C84E3AC00960C96 /* PortfolioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioUITests.swift; sourceTree = "<group>"; };
 		43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -85,6 +85,10 @@
 		43E8B4CA2C86355700C3C16F /* GenAiDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiDataSourceProtocol.swift; sourceTree = "<group>"; };
 		43E8B4CF2C8638E200C3C16F /* GenAiGetResponseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiGetResponseUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		432B78F62CA4ED5A003EE012 /* View UIKit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "View UIKit"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		43608BF82C84E3AB00960C96 /* Frameworks */ = {
@@ -114,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		433369FB2C880A5F004D64A4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				433369FC2C880A8A004D64A4 /* GenAiServiceTests.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		43608BF22C84E3AB00960C96 = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +168,7 @@
 		43608C112C84E3AC00960C96 /* PortfolioUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				43608C122C84E3AC00960C96 /* PortfolioTests.swift */,
+				433369FB2C880A5F004D64A4 /* Data */,
 			);
 			path = PortfolioUnitTests;
 			sourceTree = "<group>";
@@ -246,18 +258,19 @@
 		43E8B4A82C84FAF200C3C16F /* GenAi */ = {
 			isa = PBXGroup;
 			children = (
-				43E8B4A92C84FB0400C3C16F /* View */,
+				432B78F62CA4ED5A003EE012 /* View UIKit */,
+				43E8B4A92C84FB0400C3C16F /* View SwiftUI */,
 				43E8B4AA2C84FB1000C3C16F /* ViewModel */,
 			);
 			path = GenAi;
 			sourceTree = "<group>";
 		};
-		43E8B4A92C84FB0400C3C16F /* View */ = {
+		43E8B4A92C84FB0400C3C16F /* View SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				43E8B4C02C86313000C3C16F /* GenAiView.swift */,
 			);
-			path = View;
+			path = "View SwiftUI";
 			sourceTree = "<group>";
 		};
 		43E8B4AA2C84FB1000C3C16F /* ViewModel */ = {
@@ -349,6 +362,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				432B78F62CA4ED5A003EE012 /* View UIKit */,
+			);
 			name = Portfolio;
 			packageProductDependencies = (
 				43F0379C2C84E7C60057958B /* Networking */,
@@ -403,7 +419,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					43608BFA2C84E3AB00960C96 = {
 						CreatedOnToolsVersion = 15.4;
@@ -500,7 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43608C132C84E3AC00960C96 /* PortfolioTests.swift in Sources */,
+				433369FD2C880A8A004D64A4 /* GenAiServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +579,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -624,6 +641,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -652,6 +670,7 @@
 				CODE_SIGN_ENTITLEMENTS = Portfolio/Core/Portfolio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Portfolio/Core/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = XYT8W494HF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -692,6 +711,7 @@
 				CODE_SIGN_ENTITLEMENTS = Portfolio/Core/Portfolio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Portfolio/Core/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = XYT8W494HF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -727,10 +747,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 43608C2B2C84E3E500960C96 /* Config.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XYT8W494HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -751,10 +771,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 43608C2B2C84E3E500960C96 /* Config.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XYT8W494HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -774,9 +794,9 @@
 		43608C292C84E3AC00960C96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XYT8W494HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -796,9 +816,9 @@
 		43608C2A2C84E3AC00960C96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = XYT8W494HF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;

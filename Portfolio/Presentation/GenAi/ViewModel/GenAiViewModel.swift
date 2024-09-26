@@ -7,7 +7,8 @@
 
 import Foundation
 
-@MainActor class GenAiViewModel: ObservableObject {
+@MainActor
+class GenAiViewModel: ObservableObject {
     @Published var userPromptText = ""
     var response: GenAiResponseEntryModel?
     @Published var isLoading = false
