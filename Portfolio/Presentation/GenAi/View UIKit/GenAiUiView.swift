@@ -74,9 +74,11 @@ class GenAiUiView: UIView {
     private func setupUI() {
         addSubview(activityIndicator)
         addSubview(contentView)
+        addSubview(responseView)
         
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        responseView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -85,10 +87,10 @@ class GenAiUiView: UIView {
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            responseView.topAnchor.constraint(equalTo: topAnchor),
+            responseView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            responseView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            responseView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }
@@ -97,5 +99,6 @@ extension GenAiUiView: GenAiUiResponseViewDelegate {
     func userDismissedView() {
         responseView.isHidden = true
         contentView.isHidden = false
+        viewModel.userExitedResponse()
     }
 }
