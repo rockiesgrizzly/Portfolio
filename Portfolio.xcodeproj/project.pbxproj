@@ -19,6 +19,7 @@
 		43608C1F2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */; };
 		43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C2D2C84E40500960C96 /* GeminiService.swift */; };
 		4368A8C62CA74AAC00034E55 /* GenAiDomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */; };
+		438CB91F2CA793F80096A101 /* GenAiPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */; };
 		43E3DCD12C86429B00444235 /* GenAiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD02C86429B00444235 /* GenAiResponseModel.swift */; };
 		43E3DCD42C86432A00444235 /* GenAiResponseEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD32C86432A00444235 /* GenAiResponseEntryModel.swift */; };
 		43E3DCD62C86436100444235 /* GenAiRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD52C86436100444235 /* GenAiRepositoryProtocol.swift */; };
@@ -71,6 +72,7 @@
 		43608C2B2C84E3E500960C96 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		43608C2D2C84E40500960C96 /* GeminiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiDomainTests.swift; sourceTree = "<group>"; };
+		438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiPresentationTests.swift; sourceTree = "<group>"; };
 		43E3DCD02C86429B00444235 /* GenAiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiResponseModel.swift; sourceTree = "<group>"; };
 		43E3DCD32C86432A00444235 /* GenAiResponseEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiResponseEntryModel.swift; sourceTree = "<group>"; };
 		43E3DCD52C86436100444235 /* GenAiRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		43608C112C84E3AC00960C96 /* PortfolioUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */,
 				433369FC2C880A8A004D64A4 /* GenAiDataTests.swift */,
 				4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */,
 			);
@@ -511,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438CB91F2CA793F80096A101 /* GenAiPresentationTests.swift in Sources */,
 				4368A8C62CA74AAC00034E55 /* GenAiDomainTests.swift in Sources */,
 				433369FD2C880A8A004D64A4 /* GenAiDataTests.swift in Sources */,
 			);
