@@ -19,3 +19,18 @@ final class GenAiPresentationTests: XCTestCase {
         XCTAssert(viewModel.response?.response?.isEmpty == false)
     }
 }
+
+// MARK: newer Testing framework
+import Testing
+
+@Suite("GenAiPresentationTesting")
+struct GenAiPresentationTesting {
+    @MainActor
+    @Test func responseIsNotEmpty() async throws {
+        let viewModel = GenAiViewModel()
+        viewModel.userPromptText = "Unit testing. Return anything. Thanks!"
+        
+        try await viewModel.respond(toPrompt: viewModel.userPromptText)
+        #expect(viewModel.response?.response?.isEmpty == false)
+    }
+}
