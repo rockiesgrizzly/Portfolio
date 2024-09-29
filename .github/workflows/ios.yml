@@ -26,6 +26,9 @@ jobs:
         with:
           xcode-version: '16.0'
 
+      - name: Echo project files
+        run: ls -R
+
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -project Portfolio.xcodeproj -list -json | tr -d "\n") 
