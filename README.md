@@ -8,7 +8,8 @@ an example app architected with a Clean Swift approach to demonstrate various iO
 2. GenAI UIKit
 - Interact with Google Gemini through a UIKit interface
 
-https://github.com/user-attachments/assets/57ce0509-c8ca-4207-87e4-80559d023920
+https://github.com/user-attachments/assets/d2470d39-38cd-4cd3-b508-ab26bcff2a37
+
 
 
 
