@@ -17,7 +17,7 @@ struct GenAiView: View {
                 ProgressView()
             } else if viewModel.response?.response == nil {
                 Spacer()
-                Text("SwiftUI")
+                Text("SwiftUI with Gemini API")
                     .font(Font(UIFont.italicSystemFont(ofSize: 12)))
                 Text(viewModel.userInvitationText)
                 TextField(viewModel.promptDefaultText, text: $viewModel.userPromptText)

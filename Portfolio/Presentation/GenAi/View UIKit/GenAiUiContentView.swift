@@ -13,7 +13,7 @@ class GenAiUiContentView: UIView {
     
     private let typeLabel: UILabel = {
         let label = UILabel()
-        label.text = "UIKit"
+        label.text = "UIKit with Gemini API"
         label.font = UIFont.italicSystemFont(ofSize: 12)
         return label
     }()
