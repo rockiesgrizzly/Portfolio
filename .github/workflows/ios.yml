@@ -14,12 +14,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Debug checkout
-        run: |
-          pwd  # Print the current working directory
-          ls -la  # List the contents of the directory
-
+        
       - name: Checkout Networking repo
         uses: actions/checkout@v4
         with:
@@ -31,8 +26,8 @@ jobs:
         with:
           xcode-version: '16.0'
 
-      - name: Echo project files
-        run: ls -R
+      - name: Resolve Packages  # Add this step
+        run: xcodebuild -resolvePackageDependencies -project Portfolio.xcodeproj -verbose
 
       - name: Set Default Scheme
         run: |
