@@ -1,5 +1,5 @@
 # Portfolio
-an example app architected with a Clean Swift approach to demonstrate various iOS solutions.
+Example app architected with a Clean Swift approach to demonstrate various iOS solutions with unit and UI tests.
 
 ## Current Tabs
 1. GenAI SwiftUI
