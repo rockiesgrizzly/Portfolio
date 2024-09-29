@@ -27,7 +27,7 @@ jobs:
       # Modifying path since it's a separate repo used locally in Xcode, not possible here
       - name: Update Networking package path in Xcode project
         run: |
-          ruby -e <<EOF
+          ruby <<EOF
             require "xcodeproj"
             project = Xcodeproj::Project.open("Portfolio.xcodeproj")
             target = project.targets.first # Adjust if you have multiple targets
