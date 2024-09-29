@@ -19,12 +19,23 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'rockiesgrizzly/Networking'
-          path: 'temp_networking'
+          path: 'Networking'
 
-      - name: Move Networking contents into Portfolio
+      - name: Install xcodeproj gem
+        run: gem install xcodeproj
+
+      - name: Update Networking package path in Xcode project
         run: |
-          cp -rn temp_networking/* Portfolio/
-          rm -rf temp_networking
+          ruby -e 'require "xcodeproj"
+          project = Xcodeproj::Project.open("Portfolio.xcodeproj")
+          target = project.targets.first # Adjust if you have multiple targets
+          package = target.package_product_dependencies.find { |dep| dep.name == "Networking" }
+          if package
+            package.path = "./"  # Update the path to './'
+            project.save
+          else
+            puts "Networking package not found in the project."
+           end
 
       - name: Echo project files
         run: ls -R
