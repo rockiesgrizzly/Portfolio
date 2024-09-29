@@ -12,7 +12,11 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout project
+        uses: actions/checkout@v4
+        with:
+          path: Portfolio.xcodeproj
+      - name: Checkout Networking
         uses: actions/checkout@v4
         with:
           repository: 'rockiesgrizzly/Networking'
