@@ -18,13 +18,11 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '16.0'
-      - name: Create Portfolio folder (if needed)
-        run: mkdir -p Portfolio
       - name: Checkout Networking package
         uses: actions/checkout@v4
         with:
           repository: 'rockiesgrizzly/Networking'
-          path: 'Portfolio/Networking'
+          path: 'Networking'
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
