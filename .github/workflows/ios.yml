@@ -19,26 +19,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'rockiesgrizzly/Networking'
-          path: 'Networking'
-
-      - name: Install xcodeproj gem
-        run: gem install xcodeproj
-
-      # Modifying path since it's a separate repo used locally in Xcode, not possible here
-      - name: Update Networking package path in Xcode project
-        run: |
-          ruby <<EOF
-            require "xcodeproj"
-            project = Xcodeproj::Project.open("Portfolio.xcodeproj")
-            target = project.targets.first # Adjust if you have multiple targets
-            package = target.package_product_dependencies.find { |dep| dep.name == "Networking" }
-            if package
-              package.path = "./"
-              project.save
-            else
-              puts "Networking package not found in the project."
-            end
-          EOF
+          path: './'
 
       - name: Echo project files
         run: ls -R
