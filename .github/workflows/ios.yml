@@ -22,10 +22,11 @@ jobs:
         with:
           xcode-version: '16.0'
       - name: Set Default Scheme
-        run: |
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
+        run: | # Colon added here
+          scheme_list=$(xcodebuild -project Portfolio.xcodeproj -list -json | tr -d "\n") 
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo $default | cat >default
+          echo Using default scheme: $default
           echo Using default scheme: $default
       - name: Build
         env:
