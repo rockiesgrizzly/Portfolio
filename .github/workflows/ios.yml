@@ -14,15 +14,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        
-      - name: Checkout Networking repo to temp directory
-        uses: actions/checkout@v4
-        with:
-          repository: 'rockiesgrizzly/Networking'
-          path: './'
-
-      - name: Echo project files
-        run: ls -R
 
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1
