@@ -21,6 +21,9 @@ jobs:
           repository: 'rockiesgrizzly/Networking'
           path: 'Networking'
 
+      - name: Echo project files
+        run: ls -R
+
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
