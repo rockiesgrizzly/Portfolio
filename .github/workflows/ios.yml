@@ -15,15 +15,16 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         
-      - name: Clone Networking repo (without checkout)
-        working-directory: ./  # Make sure you're in the root of the Portfolio repo
-        run: git clone --no-checkout https://github.com/rockiesgrizzly/Networking Networking
+      - name: Checkout Networking repo to temp directory
+        uses: actions/checkout@v4
+        with:
+          repository: 'rockiesgrizzly/Networking'
+          path: 'temp_networking'
 
-      - name: Sparse checkout Networking package
-        working-directory: ./Networking
+      - name: Move Networking contents into Portfolio
         run: |
-          git sparse-checkout init --cone
-          git sparse-checkout set Sources/Networking
+          cp -rn temp_networking/* Portfolio/
+          rm -rf temp_networking
 
       - name: Echo project files
         run: ls -R
