@@ -12,6 +12,8 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Checkout Networking
         uses: actions/checkout@v4
         with:
