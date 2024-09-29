@@ -442,9 +442,9 @@
 			);
 			mainGroup = 43608BF22C84E3AB00960C96;
 			packageReferences = (
-				43F0379B2C84E7C60057958B /* XCLocalSwiftPackageReference "../Networking" */,
 				43F0379E2C84E7D90057958B /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 				433369F22C87F403004D64A4 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				43FBD0372CA9FC4F00D104D0 /* XCLocalSwiftPackageReference "Networking" */,
 			);
 			productRefGroup = 43608BFC2C84E3AB00960C96 /* Products */;
 			projectDirPath = "";
@@ -877,9 +877,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		43F0379B2C84E7C60057958B /* XCLocalSwiftPackageReference "../Networking" */ = {
+		43FBD0372CA9FC4F00D104D0 /* XCLocalSwiftPackageReference "Networking" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Networking;
+			relativePath = Networking;
 		};
 /* End XCLocalSwiftPackageReference section */
 
