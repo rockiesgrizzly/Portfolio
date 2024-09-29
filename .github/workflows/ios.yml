@@ -18,6 +18,8 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '16.0'
+      - name: Update Git submodules
+        run: git submodule update --init --recursive
       - name: Set Default Scheme
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
