@@ -1,7 +1,15 @@
 # Portfolio
-an example app architected with a Clean Swift approach to demonstrate various iOS solutions
+an example app architected with a Clean Swift approach to demonstrate various iOS solutions.
+
+## Current Tabs
+1. GenAI SwiftUI
+- Interact with Google Gemini through a SwiftUI interface
+
+2. GenAI UIKit
+- Interact with Google Gemini through a UIKit interface
+
+https://github.com/user-attachments/assets/57ce0509-c8ca-4207-87e4-80559d023920
 
 
 
-https://github.com/user-attachments/assets/9742f0ba-24f9-40ab-832d-52d83d91305f
 
