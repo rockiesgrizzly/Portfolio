@@ -24,6 +24,7 @@ jobs:
       - name: Install xcodeproj gem
         run: gem install xcodeproj
 
+      # Modifying path since it's a separate repo used locally in Xcode, not possible here
       - name: Update Networking package path in Xcode project
         run: |
           ruby -e 'require "xcodeproj"
