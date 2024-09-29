@@ -15,11 +15,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         
-      - name: Checkout Networking repo
+      - name: Checkout Networking repo to temp directory
         uses: actions/checkout@v4
         with:
           repository: 'rockiesgrizzly/Networking'
-          path: 'Portfolio'
+          path: 'temp_networking'  # Checkout into a temporary directory
+
+      - name: Move Networking package
+        run: |
+          mkdir -p Networking  # Create the 'Networking' subdirectory if it doesn't exist
+          mv temp_networking/Sources/Networking Networking/  # Move only the 'Networking' package 
+          rm -rf temp_networking  # Clean up the temporary directory
 
       - name: Echo project files
         run: ls -R
