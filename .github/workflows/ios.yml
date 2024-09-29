@@ -15,6 +15,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Debug checkout
+        run: |
+          pwd  # Print the current working directory
+          ls -la  # List the contents of the directory
+
       - name: Checkout Networking repo
         uses: actions/checkout@v4
         with:
