@@ -26,6 +26,9 @@ jobs:
         with:
           xcode-version: '16.0'
 
+      - name: Install required simulator
+        run: xcversion simulators --install 'iPhone 16 Pro'
+
       - name: Resolve Packages  # Add this step
         run: xcodebuild -resolvePackageDependencies -project Portfolio.xcodeproj -verbose
 
