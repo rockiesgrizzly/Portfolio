@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build and Test default scheme using any available iPhone simulator
-    runs-on: macos-latest
+    runs-on: ios-latest
 
     steps:
       - name: Checkout repo
@@ -25,9 +25,6 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '16.0'
-
-      - name: Install required simulator
-        run: xcversion simulators --install 'iPhone 16 Pro'
 
       - name: Resolve Packages  # Add this step
         run: xcodebuild -resolvePackageDependencies -project Portfolio.xcodeproj -verbose
