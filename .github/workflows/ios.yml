@@ -32,11 +32,11 @@ jobs:
           target = project.targets.first # Adjust if you have multiple targets
           package = target.package_product_dependencies.find { |dep| dep.name == "Networking" }
           if package
-            package.path = "./"  # Update the path to './'
+            package.path = "./"
             project.save
           else
             puts "Networking package not found in the project."
-           end
+          end
 
       - name: Echo project files
         run: ls -R
