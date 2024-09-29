@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'rockiesgrizzly/Networking'
-          path: 'Networking'
+          path: 'Portfolio'
 
       - name: Echo project files
         run: ls -R
