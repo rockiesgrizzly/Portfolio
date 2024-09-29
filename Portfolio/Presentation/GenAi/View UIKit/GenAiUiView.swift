@@ -80,17 +80,20 @@ class GenAiUiView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         responseView.translatesAutoresizingMaskIntoConstraints = false
         
+        let sideMargin: CGFloat = 16
+        let bottomMargin: CGFloat = -24
+        
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
             contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: sideMargin),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -sideMargin),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: bottomMargin),
             responseView.topAnchor.constraint(equalTo: topAnchor),
-            responseView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            responseView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            responseView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            responseView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: sideMargin),
+            responseView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -sideMargin),
+            responseView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: bottomMargin),
         ])
     }
 }
