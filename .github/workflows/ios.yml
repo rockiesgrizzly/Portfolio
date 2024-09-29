@@ -27,8 +27,8 @@ jobs:
       # Modifying path since it's a separate repo used locally in Xcode, not possible here
       - name: Update Networking package path in Xcode project
         run: |
-          ruby -e 
-            "require "xcodeproj"
+          ruby -e <<EOF
+            require "xcodeproj"
             project = Xcodeproj::Project.open("Portfolio.xcodeproj")
             target = project.targets.first # Adjust if you have multiple targets
             package = target.package_product_dependencies.find { |dep| dep.name == "Networking" }
@@ -37,7 +37,8 @@ jobs:
               project.save
             else
               puts "Networking package not found in the project."
-            end"
+            end
+          EOF
 
       - name: Echo project files
         run: ls -R
