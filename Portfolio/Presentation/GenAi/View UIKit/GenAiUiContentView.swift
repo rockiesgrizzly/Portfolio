@@ -79,22 +79,10 @@ class GenAiUiContentView: UIView {
     
     private func update(with viewModel: GenAiViewModel) {
         topLabel.text = viewModel.userInvitationText
-        userTextField.placeholder = viewModel.response?.response ?? viewModel.promptDefaultText
+        userTextField.placeholder = viewModel.promptDefaultText
     }
     
     private func subscribeToPublishers() {
-        let userPromptText = viewModel.$userPromptText.sink { [weak self] text in
-            guard let self else { return }
-            
-            if let response = viewModel.response?.response {
-                userTextField.text = response
-            } else {
-                userTextField.placeholder = viewModel.promptDefaultText
-            }
-        }
-        
-        cancellables.insert(userPromptText)
-        
         let errorMessage = viewModel.$errorMessage.sink { [weak self] errorMessage in
             guard let self, let errorMessage, !errorMessage.isEmpty else { return }
             
@@ -111,6 +99,7 @@ extension GenAiUiContentView: UITextFieldDelegate {
 
         Task {
             try await viewModel.respond(toPrompt: prompt)
+            userTextField.text = ""
         }
         
         textField.resignFirstResponder()
