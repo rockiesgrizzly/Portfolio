@@ -73,7 +73,7 @@ jobs:
 
       - name: Test
         env:
-          scheme: ${{ 'default' }}
+          scheme: ${{ 'test_scheme' }}
           platform: ${{ 'iOS Simulator' }}
         run: |
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
