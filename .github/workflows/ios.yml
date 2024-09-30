@@ -54,6 +54,7 @@ jobs:
           if [ $scheme = default ]; 
             then scheme=$(cat default); 
           fi
+          echo "Scheme: $scheme"
           
           filetype_parameter="project" && file_to_build="Portfolio.xcodeproj"; 
           file_to_build=`echo $file_to_build | awk '{print $1}'`
@@ -72,6 +73,7 @@ jobs:
           if [ $scheme = default ]; 
             then scheme=$(cat default); 
           fi
+          echo "Scheme: $scheme"
           
           filetype_parameter="project" && file_to_build="Portfolio.xcodeproj";
           file_to_build=`echo $file_to_build | awk '{print $1}'`
