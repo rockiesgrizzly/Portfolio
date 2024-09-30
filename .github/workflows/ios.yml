@@ -41,6 +41,17 @@ jobs:
           echo $default | cat >default
           echo Using default scheme: $default
 
+      - name: Set Test Scheme
+        run: |
+          scheme_list=$(xcodebuild -project Portfolio.xcodeproj -list -json | tr -d "\n")
+          test_scheme=$(echo $scheme_list | ruby -e "require 'json'; 
+          targets = JSON.parse(STDIN.gets)['project']['targets']
+          test_target = targets.find { |target| target.end_with?('Tests') } 
+          puts test_target || targets[0]
+          ")
+          echo $test_scheme | cat >test_scheme
+          echo Using test_scheme scheme: $test_scheme
+
       - name: Build
         env:
           scheme: ${{ 'default' }}
@@ -54,6 +65,7 @@ jobs:
           if [ $scheme = default ]; 
             then scheme=$(cat default); 
           fi
+          echo "Scheme: $scheme"
           
           filetype_parameter="project" && file_to_build="Portfolio.xcodeproj"; 
           file_to_build=`echo $file_to_build | awk '{print $1}'`
@@ -61,7 +73,7 @@ jobs:
 
       - name: Test
         env:
-          scheme: ${{ 'default' }}
+          scheme: ${{ 'test_scheme' }}
           platform: ${{ 'iOS Simulator' }}
         run: |
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
@@ -69,10 +81,12 @@ jobs:
           echo "Device: $device"
           echo "Platform: $platform"
           
-          if [ $scheme = default ]; 
-            then scheme=$(cat default); 
+          if [ $scheme = test_scheme ]; 
+            then scheme=$(cat test_scheme); 
           fi
+          echo "Scheme: $scheme"
           
           filetype_parameter="project" && file_to_build="Portfolio.xcodeproj";
           file_to_build=`echo $file_to_build | awk '{print $1}'`
-          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+          echo "xcodebuild test-without-building"
+          xcodebuild test-without-building -verbose -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
