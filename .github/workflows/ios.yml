@@ -44,8 +44,8 @@ jobs:
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
           device=`xcrun xctrace list devices 2>&1 | grep -oE 'iOS Simulator.*?[^\(]+' | head -1 | awk '{print $1}' | sed -e 's/ Simulator$//'`
           if [ -z "$device" ]; then
-            echo "No iPhone simulator found. Installing iPhone 14 Pro Max..."
-            xcversion simulators --install 'iPhone 14 Pro Max'
+            echo "No iPhone simulator found. Installing iPhone 16..."
+            xcversion simulators --install 'iPhone 16'
             device="iPhone 16"
           fi
           
