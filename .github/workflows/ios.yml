@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test default scheme using any available iPhone simulator
+    name: Build
     runs-on: macos-latest
 
     steps:
@@ -41,17 +41,6 @@ jobs:
           echo $default | cat >default
           echo Using default scheme: $default
 
-      - name: Set Test Scheme
-        run: |
-          scheme_list=$(xcodebuild -project Portfolio.xcodeproj -list -json | tr -d "\n")
-          test_scheme=$(echo $scheme_list | ruby -e "require 'json'; 
-          targets = JSON.parse(STDIN.gets)['project']['targets']
-          test_target = targets.find { |target| target.end_with?('Tests') } 
-          puts test_target || targets[0]
-          ")
-          echo $test_scheme | cat >test_scheme
-          echo Using test_scheme scheme: $test_scheme
-
       - name: Build
         env:
           scheme: ${{ 'default' }}
@@ -70,6 +59,44 @@ jobs:
           filetype_parameter="project" && file_to_build="Portfolio.xcodeproj"; 
           file_to_build=`echo $file_to_build | awk '{print $1}'`
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+
+    build:
+      name: Tests
+      runs-on: macos-latest
+
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
+        - name: Checkout Networking
+          uses: actions/checkout@v4
+          with:
+            repository: 'rockiesgrizzly/Networking'
+            path: 'Networking'
+
+        - name: Set up Xcode
+          uses: maxim-lobanov/setup-xcode@v1
+          with:
+            xcode-version: '16.0'
+
+        - name: Create Config.xcconfig 
+          run: |
+            echo "GOOGLE_GEN_AI_KEY = ${GOOGLE_GEN_AI_KEY}" >> Portfolio/Core/Config.xcconfig 
+            echo "OPENAI_KEY = ${OPENAI_KEY}" >> Portfolio/Core/Config.xcconfig 
+
+        - name: Resolve Packages
+          run: xcodebuild -resolvePackageDependencies -project Portfolio.xcodeproj -verbose
+
+      - name: Set Test Scheme
+        run: |
+          scheme_list=$(xcodebuild -project Portfolio.xcodeproj -list -json | tr -d "\n")
+          test_scheme=$(echo $scheme_list | ruby -e "require 'json'; 
+          targets = JSON.parse(STDIN.gets)['project']['targets']
+          test_target = targets.find { |target| target.end_with?('Tests') } 
+          puts test_target || targets[0]
+          ")
+          echo $test_scheme | cat >test_scheme
+          echo Using test_scheme scheme: $test_scheme
 
       - name: Test
         env:
