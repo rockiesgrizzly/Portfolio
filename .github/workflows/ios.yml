@@ -24,7 +24,7 @@ jobs:
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '15.0'
+          xcode-version: '16.0'
 
       - name: Resolve Packages
         run: xcodebuild -resolvePackageDependencies -project Portfolio.xcodeproj -verbose
@@ -42,8 +42,7 @@ jobs:
           platform: ${{ 'iOS Simulator' }}
         run: |
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iOS Simulator.*?[^\(]+' | head -1 | awk '{print $1}' | sed -e 's/ Simulator$//'`
-          
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{print $1}' | sed -e 's/ Simulator$//'` 
           echo "Device: $device"
           
           if [ $scheme = default ]; 
