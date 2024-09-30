@@ -26,12 +26,6 @@ jobs:
         with:
           xcode-version: '16.0'
 
-      - name: Install xcversion
-        run: brew install xcversion
-
-      - name: Install required simulator 
-        run: xcversion simulators --install 'iPhone 16'
-
       - name: List available simulators 
         run: xcrun xctrace list devices
 
