@@ -26,7 +26,16 @@ jobs:
         with:
           xcode-version: '16.0'
 
-      - name: Resolve Packages  # Add this step
+      - name: Install xcversion
+        run: brew install xcversion
+
+      - name: Install required simulator 
+        run: xcversion simulators --install 'iPhone 16'
+
+      - name: List available simulators 
+        run: xcrun xctrace list devices
+
+      - name: Resolve Packages
         run: xcodebuild -resolvePackageDependencies -project Portfolio.xcodeproj -verbose
 
       - name: Set Default Scheme
@@ -43,11 +52,6 @@ jobs:
         run: |
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
           device=`xcrun xctrace list devices 2>&1 | grep -oE 'iOS Simulator.*?[^\(]+' | head -1 | awk '{print $1}' | sed -e 's/ Simulator$//'`
-          if [ -z "$device" ]; then
-            echo "No iPhone simulator found. Installing iPhone 16..."
-            xcversion simulators --install 'iPhone 16'
-            device="iPhone 16"
-          fi
           
           echo "Device: $device"
           
