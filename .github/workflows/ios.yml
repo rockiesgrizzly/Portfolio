@@ -28,8 +28,9 @@ jobs:
 
       - name: Create Config.xcconfig 
         run: |
-          echo "GOOGLE_GEN_AI_KEY = ${secrets.GOOGLE_GEN_AI_KEY} >> Portfolio/Core/Config.xcconfig 
-          echo "OPENAI_KEY = ${secrets.OPENAI_KEY} ${}" >> Portfolio/Core/Config.xcconfig 
+          echo "GOOGLE_GEN_AI_KEY = ${{ secrets.GOOGLE_GEN_AI_KEY }}" >> Portfolio/Core/Config.xcconfig 
+          echo "OPENAI_KEY = ${{ secrets.OPENAI_KEY }}" >> Portfolio/Core/Config.xcconfig 
+
       - name: Resolve Packages
         run: xcodebuild -resolvePackageDependencies -project Portfolio.xcodeproj -verbose
 
