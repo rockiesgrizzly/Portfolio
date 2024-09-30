@@ -56,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		432A54B12CAA51B200BC79F0 /* PortfolioTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PortfolioTests.xctestplan; sourceTree = "<group>"; };
 		433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceOptions.swift; sourceTree = "<group>"; };
 		433369F52C87F63E004D64A4 /* OpenAiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAiService.swift; sourceTree = "<group>"; };
 		433369F92C8800AC004D64A4 /* GenAiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceProtocol.swift; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 		43608BF22C84E3AB00960C96 = {
 			isa = PBXGroup;
 			children = (
+				432A54B12CAA51B200BC79F0 /* PortfolioTests.xctestplan */,
 				43608BFD2C84E3AB00960C96 /* Portfolio */,
 				43E8B4AD2C854DA200C3C16F /* Tests */,
 				43608BFC2C84E3AB00960C96 /* Products */,
