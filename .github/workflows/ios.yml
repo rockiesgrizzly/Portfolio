@@ -88,4 +88,5 @@ jobs:
           
           filetype_parameter="project" && file_to_build="Portfolio.xcodeproj";
           file_to_build=`echo $file_to_build | awk '{print $1}'`
-          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+          echo "xcodebuild test-without-building"
+          xcodebuild test-without-building -verbose -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
