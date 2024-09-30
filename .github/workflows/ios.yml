@@ -44,6 +44,7 @@ jobs:
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
           device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone 16' | head -1 | awk '{print $1}' | sed -e 's/ Simulator$//'` 
           echo "Device: $device"
+          echo "Platform: $platform"
           
           if [ $scheme = default ]; 
             then scheme=$(cat default); 
