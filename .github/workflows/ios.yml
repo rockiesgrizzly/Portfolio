@@ -44,12 +44,11 @@ jobs:
       - name: Set Tests Scheme
         run: |
           scheme_list=$(xcodebuild -project Portfolio.xcodeproj -list -json | tr -d "\n")
-          test_scheme=$(echo $scheme_list | ruby -e "require 'json'; 
+          test_scheme=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           targets = JSON.parse(STDIN.gets)['project']['targets']
           test_target = targets.find { |target| target.end_with?('Tests') } 
           puts test_target || targets[0]
           echo $test_scheme | cat >test_scheme
-          echo Using test scheme: $test_scheme
 
       - name: Build
         env:
