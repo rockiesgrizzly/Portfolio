@@ -42,7 +42,8 @@ jobs:
           platform: ${{ 'iOS Simulator' }}
         run: |
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{print $1}' | sed -e "s/ Simulator$//"`
+          # device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{print $1}' | sed -e "s/ Simulator$//"`
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{print <span class="math-inline">1\}' \| sed \-e "s/ Simulator</span>//"`
           
           if [ $scheme = default ]; 
             then scheme=$(cat default); 
@@ -58,7 +59,8 @@ jobs:
           platform: ${{ 'iOS Simulator' }}
         run: |
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{print $1}' | sed -e "s/ Simulator$//"`
+          # device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{print $1}' | sed -e "s/ Simulator$//"`
+          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{print <span class="math-inline">1\}' \| sed \-e "s/ Simulator</span>//"`
           
           if [ $scheme = default ]; 
             then scheme=$(cat default); 
