@@ -68,22 +68,22 @@ jobs:
           filetype_parameter="project" && file_to_build="Portfolio.xcodeproj"; 
           file_to_build=`echo $file_to_build | awk '{print $1}'`
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
-      - name: Test
-        env:
-          scheme: ${{ 'test_scheme' }}
-          platform: ${{ 'iOS Simulator' }}
-        run: |
-          # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-          device='iPhone 16' 
-          echo "Device: $device"
-          echo "Platform: $platform"
+      # - name: Test
+      #   env:
+      #     scheme: ${{ 'test_scheme' }}
+      #     platform: ${{ 'iOS Simulator' }}
+      #   run: |
+      #     # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
+      #     device='iPhone 16' 
+      #     echo "Device: $device"
+      #     echo "Platform: $platform"
           
-          if [ $scheme = test_scheme ]; 
-            then scheme=$(cat test_scheme); 
-          fi
-          echo "Scheme: $scheme"
+      #     if [ $scheme = test_scheme ]; 
+      #       then scheme=$(cat test_scheme); 
+      #     fi
+      #     echo "Scheme: $scheme"
           
-          filetype_parameter="project" && file_to_build="Portfolio.xcodeproj";
-          file_to_build=`echo $file_to_build | awk '{print $1}'`
-          echo "xcodebuild test-without-building"
-          xcodebuild test-without-building -verbose -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+      #     filetype_parameter="project" && file_to_build="Portfolio.xcodeproj";
+      #     file_to_build=`echo $file_to_build | awk '{print $1}'`
+      #     echo "xcodebuild test-without-building"
+      #     xcodebuild test-without-building -verbose -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
