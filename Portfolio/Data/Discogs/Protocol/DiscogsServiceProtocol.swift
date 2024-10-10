@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DiscogsServiceProtocol {
-    static func response(toPrompt prompt: String) async throws -> String?
+    static func authenticate() async throws
 }

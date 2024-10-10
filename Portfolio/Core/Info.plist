@@ -6,5 +6,9 @@
 	<string>$(GOOGLE_GEN_AI_KEY)</string>
 	<key>OPENAI_KEY</key>
 	<string>$(OPENAI_KEY)</string>
+	<key>DISCOGS_KEY</key>
+	<string>$(DISCOGS_KEY)</string>
+	<key>DISCOGS_SECRET</key>
+	<string>$(DISCOGS_SECRET)</string>
 </dict>
 </plist>

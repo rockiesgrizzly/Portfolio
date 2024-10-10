@@ -10,10 +10,22 @@ import Networking
 
 
 struct DiscogsService {
-    private let baseUrl = "https://api.discogs.com/v1"
-    private let remaining = "database/search?q={query}&{?type,title,release_title,credit,artist,anv,label,genre,style,country,year,format,catno,barcode,track,submitter,contributor}"
+    private let authUrl = "https://www.discogs.com/oauth/authorize"
+    private let apiBaseUrl = "https://api.discogs.com"
+    private let requestTokenUrlSuffix = "/oauth/request_token"
+    private let accessTokenUrlSuffix = "/oauth/access_token"
     
-    func  search(query: String) {
+    private static var apiKey: String {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "DISCOGS_KEY") as? String else { assertionFailure("No api key found. If you're testing this code, you'll need to grab an API key and drop it in Info.plist"); return "" }
+        return apiKey
+    }
+    
+    private static var apiSecret: String {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "DISCOGS_SECRET") as? String else { assertionFailure("No api secret found. If you're testing this code, you'll need to grab an API secret and drop it in Info.plist"); return "" }
+        return apiKey
+    }
+    
+    func authenticate() {
         
     }
 }
