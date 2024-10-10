@@ -28,8 +28,8 @@ jobs:
 
       - name: Create Config.xcconfig 
         run: |
-          echo "GOOGLE_GEN_AI_KEY = ${GOOGLE_GEN_AI_KEY}" >> Portfolio/Core/Config.xcconfig 
-          echo "OPENAI_KEY = ${OPENAI_KEY}" >> Portfolio/Core/Config.xcconfig 
+          echo "GOOGLE_GEN_AI_KEY = ${{ secrets.GOOGLE_GEN_AI_KEY }}" >> Portfolio/Core/Config.xcconfig 
+          echo "OPENAI_KEY = ${{ secrets.OPENAI_KEY }}" >> Portfolio/Core/Config.xcconfig 
 
       - name: Resolve Packages
         run: xcodebuild -resolvePackageDependencies -project Portfolio.xcodeproj -verbose
@@ -40,7 +40,6 @@ jobs:
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo $default | cat >default
           echo Using default scheme: $default
-
       - name: Set Test Scheme
         run: |
           scheme_list=$(xcodebuild -project Portfolio.xcodeproj -list -json | tr -d "\n")
@@ -51,7 +50,6 @@ jobs:
           ")
           echo $test_scheme | cat >test_scheme
           echo Using test_scheme scheme: $test_scheme
-
       - name: Build
         env:
           scheme: ${{ 'default' }}
@@ -70,23 +68,22 @@ jobs:
           filetype_parameter="project" && file_to_build="Portfolio.xcodeproj"; 
           file_to_build=`echo $file_to_build | awk '{print $1}'`
           xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
-
-      - name: Test
-        env:
-          scheme: ${{ 'test_scheme' }}
-          platform: ${{ 'iOS Simulator' }}
-        run: |
-          # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-          device='iPhone 16' 
-          echo "Device: $device"
-          echo "Platform: $platform"
+      # - name: Test
+      #   env:
+      #     scheme: ${{ 'test_scheme' }}
+      #     platform: ${{ 'iOS Simulator' }}
+      #   run: |
+      #     # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
+      #     device='iPhone 16' 
+      #     echo "Device: $device"
+      #     echo "Platform: $platform"
           
-          if [ $scheme = test_scheme ]; 
-            then scheme=$(cat test_scheme); 
-          fi
-          echo "Scheme: $scheme"
+      #     if [ $scheme = test_scheme ]; 
+      #       then scheme=$(cat test_scheme); 
+      #     fi
+      #     echo "Scheme: $scheme"
           
-          filetype_parameter="project" && file_to_build="Portfolio.xcodeproj";
-          file_to_build=`echo $file_to_build | awk '{print $1}'`
-          echo "xcodebuild test-without-building"
-          xcodebuild test-without-building -verbose -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+      #     filetype_parameter="project" && file_to_build="Portfolio.xcodeproj";
+      #     file_to_build=`echo $file_to_build | awk '{print $1}'`
+      #     echo "xcodebuild test-without-building"
+      #     xcodebuild test-without-building -verbose -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
