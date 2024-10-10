@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DiscogsServiceProtocol {
-    static func authenticate() async throws
+    static func getToken() async throws
 }

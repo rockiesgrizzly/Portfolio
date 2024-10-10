@@ -6,14 +6,16 @@
 //
 
 protocol DiscogsAuthenticateUseCase {
-    static func execute(userInfo: DiscogsUserInfoModel) async throws -> Result<DiscogsAuthResponseModel, Error>
+    static func execute() async throws -> Result<DiscogsAuthResponseModel, Error>
 }
 
 struct DiscogsAuthenticateUseCaseImplementation: DiscogsAuthenticateUseCase {
-    static func execute(userInfo: DiscogsUserInfoModel) async throws -> Result<DiscogsAuthResponseModel, Error> {
+    static func execute() async throws -> Result<DiscogsAuthResponseModel, Error> {
         do {
-//            let response = try await GenAiResponseRepository.getAiResponse(userInfo: userInfo)
-            return .success(response)
+            let credential = try await DiscogsRepository.credential
+            try await DiscogsDataSource.saveCredential(credential)
+            let model = DiscogsAuthResponseModel(userIsAuthorized: true)
+            return .success(model)
         } catch {
             return .failure(error)
         }

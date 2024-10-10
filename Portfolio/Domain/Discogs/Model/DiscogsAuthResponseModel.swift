@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct DiscogsCollectionModel {
-    
+struct DiscogsAuthResponseModel {
+    var userIsAuthorized: Bool
 }

@@ -6,5 +6,6 @@
 //
 
 protocol DiscogsDataSourceProtocol {
-    static func getAuthResponse(promptModel: DiscogsUserInfoModel) async throws -> DiscogsAuthResponseModel
+    static func saveCredential(_ credential: DiscogsCredential) async throws
+    static func retrieveCredential() async throws -> DiscogsCredential?
 }

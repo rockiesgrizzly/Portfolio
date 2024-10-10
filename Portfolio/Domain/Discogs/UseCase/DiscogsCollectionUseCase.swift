@@ -10,12 +10,12 @@ protocol DiscogsCollectionUseCase {
 }
 
 struct DiscogsCollectionUseCaseImplementation: DiscogsCollectionUseCase {
-    static func execute() async throws -> Result<DiscogsCollectionModel, Error> {
-        do {
-//            let response = try await GenAiResponseRepository.getAiResponse(promptModel: promptModel)
-            return .success(response)
-        } catch {
-            return .failure(error)
-        }
+//    static func execute() async throws -> Result<DiscogsCollectionModel, Error> {
+//        do {
+////            let response = try await GenAiResponseRepository.getAiResponse(promptModel: promptModel)
+//            return .success(response)
+//        } catch {
+//            return .failure(error)
+//        }
     }
 }
