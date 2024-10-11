@@ -8,22 +8,70 @@
 import Foundation
 
 struct DiscogsDataSource: DiscogsDataSourceProtocol, KeyChainHandler {
-    private static let keychainCredentialKey = "Portfolio_DiscogsCredentialKey"
+    private static let keychainRequestTokenKey = "Portfolio_Discogs_Request_Token"
+    private static let keychainTokenKeAccessTokenKey = "Portfolio_Discogs_Access_Token"
+    private static let keychainTokenKeAccessTokenSecretKey = "Portfolio_Discogs_Access_Token_Secret"
     
-    // MARK: - Keychain
-    static func saveCredential(_ credential: DiscogsCredential) async throws {
-        guard let encodedCredential = try? JSONEncoder().encode(credential) else {
-                    print("Error encoding credential")
-                    return
-                }
-        try save(encodedCredential, forKey: keychainCredentialKey)
+    // MARK: - Keychain Save
+    
+    static func saveRequestToken(_ token: String) async throws {
+        guard let data = token.data(using: .utf8) else { throw SourceError.encodingIssue }
+        try save(data, forKey: keychainRequestTokenKey)
     }
     
-    static func retrieveCredential() async throws -> DiscogsCredential? {
-        guard let encodedCredential = try? retrieve(forKey: keychainCredentialKey) else {
-            return nil
+    static func saveAccessToken(_ token: String) async throws {
+        guard let data = token.data(using: .utf8) else { throw SourceError.encodingIssue }
+        try save(data, forKey: keychainTokenKeAccessTokenKey)
+    }
+    
+    static func saveAccessTokenSecret(_ token: String) async throws {
+        guard let data = token.data(using: .utf8) else { throw SourceError.encodingIssue }
+        try save(data, forKey: keychainTokenKeAccessTokenSecretKey)
+    }
+    
+    
+    // MARK: - Keychain Retrieve
+    
+    static func retrieveRequestToken() async throws -> String {
+        guard let data = try? retrieve(forKey: keychainRequestTokenKey) else {
+            throw SourceError.notFound
         }
-        return try? JSONDecoder().decode(DiscogsCredential.self, from: encodedCredential)
+        
+        guard let string = String(data: data, encoding: .utf8) else {
+            throw SourceError.decodingIssue
+        }
+        
+        return string
+    }
+    
+    static func retrieveAccessToken() async throws -> String {
+        guard let data = try? retrieve(forKey: keychainTokenKeAccessTokenKey) else {
+            throw SourceError.notFound
+        }
+        
+        guard let string = String(data: data, encoding: .utf8) else {
+            throw SourceError.decodingIssue
+        }
+        
+        return string
+    }
+    
+    static func retrieveAccessTokenSecret() async throws -> String {
+        guard let data = try? retrieve(forKey: keychainTokenKeAccessTokenSecretKey) else {
+            throw SourceError.notFound
+        }
+        
+        guard let string = String(data: data, encoding: .utf8) else {
+            throw SourceError.decodingIssue
+        }
+        
+        return string
+    }
+    
+    enum SourceError: Error {
+        case decodingIssue
+        case encodingIssue
+        case notFound
     }
     
 }

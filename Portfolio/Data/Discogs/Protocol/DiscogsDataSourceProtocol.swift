@@ -6,6 +6,11 @@
 //
 
 protocol DiscogsDataSourceProtocol {
-    static func saveCredential(_ credential: DiscogsCredential) async throws
-    static func retrieveCredential() async throws -> DiscogsCredential?
+    static func saveRequestToken(_ token: String) async throws
+    static func saveAccessToken(_ token: String) async throws
+    static func saveAccessTokenSecret(_ token: String) async throws
+    
+    static func retrieveRequestToken() async throws -> String
+    static func retrieveAccessToken() async throws -> String
+    static func retrieveAccessTokenSecret() async throws -> String
 }

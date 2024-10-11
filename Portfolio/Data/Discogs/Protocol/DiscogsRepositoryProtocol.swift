@@ -8,5 +8,9 @@
 import Foundation
 
 protocol DiscogsRepositoryProtocol {
-//    static var credential: DiscogsCredential { get async throws }
+    // MARK: - Authentication
+    static var requestToken: String { get async throws }
+    static func accessToken(for requestToken: String, and verifier: String) async throws -> (token: String, secret: String)
+    
+    // MARK: - User Collection
 }

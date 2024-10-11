@@ -17,9 +17,9 @@ extension OAuthHelper {
     // MARK: - Public
     
     ///  Send a GET request to the Discogs request token URL
-    static func requestToken(fromUrl url: URL, key: String, secret: String, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> String {
+    static func requestToken(fromUrl url: URL, apiKey: String, apiSecret: String, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> String {
         var request = URLRequest(url: url)
-        let parameters = oAuthParameters(key: key, secret: secret)
+        let parameters = oAuthParameters(apiKey: apiKey, apiSecret: apiSecret)
         let signature = signature(parameters: parameters)
         
         let authHeader = authorizationHeader(from: parameters, signature: signature)
@@ -33,11 +33,11 @@ extension OAuthHelper {
     }
     
     
-    static func accessToken(fromUrl url: URL, key: String, secret: String, requestToken: String, verifier: String, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> (token: String, secret: String) {
+    static func accessToken(fromUrl url: URL, apiKey: String, apiSecret: String, requestToken: String, verifier: String, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> (token: String, secret: String) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
-        var parameters = oAuthParameters(key: key, secret: secret)
+        var parameters = oAuthParameters(apiKey: apiKey, apiSecret: apiSecret)
         parameters["oauth_token"] = requestToken
         parameters["oauth_verifier"] = verifier
 
@@ -59,6 +59,24 @@ extension OAuthHelper {
         return (accessToken, accessTokenSecret)
     }
     
+    static func getModel<Model: Decodable>(from url: URL, apiKey: String, apiSecret: String, authToken: String, authTokenSecret: String, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> Model {
+        var request = URLRequest(url: url)
+        var parameters = oAuthParameters(apiKey: apiKey, apiSecret: apiSecret)
+        parameters["oauth_token"] = authToken
+
+        let signature = getSignature(for: request, parameters: parameters, apiSecret: apiSecret, tokenSecret: authTokenSecret)
+
+        let authHeader = authorizationHeader(from: parameters, signature: signature)
+        request.setValue(authHeader, forHTTPHeaderField: "Authorization")
+        addUserAgent(to: &request)
+
+        // Use async/await to get the data
+        guard let data = try await Request<Data>.asyncGet(request, session: session) else { throw HelperError.noData }
+        let identity = try JSONDecoder().decode(Model.self, from: data)
+
+        return identity
+    }
+    
     private static func addUserAgent(to request: inout URLRequest) {
         request.setValue("Portfolio/1.0.0", forHTTPHeaderField: "User-Agent")
     }
@@ -73,21 +91,33 @@ extension OAuthHelper {
     ///    oauth_signature_method="PLAINTEXT",
     ///    oauth_timestamp="current_timestamp",
     ///    oauth_callback="your_callback"
-    static func oAuthParameters(key: String, secret: String) -> [String: String] {
+    static func oAuthParameters(apiKey: String, apiSecret: String) -> [String: String] {
         var parameters = [String: String]()
 
-        parameters["oauth_consumer_key"] = key
+        parameters["oauth_consumer_key"] = apiKey
         parameters["oauth_nonce"] = nonce
         parameters["oauth_signature_method"] = "PLAINTEXT"
         parameters["oauth_timestamp"] = String(Int(Date().timeIntervalSince1970))
         parameters["oauth_callback"] = PortfolioApp.oauthCallbackUrl
-        parameters["oauth_signature"] = "\(percentEncode(secret))&"
+        parameters["oauth_signature"] = "\(percentEncode(apiSecret))&"
 
         return parameters
     }
 
     static func signature(parameters: [String: String]) -> String {
         parameters["oauth_signature"] ?? ""
+    }
+    
+    private static func getSignature(for request: URLRequest,
+                                parameters: [String: String],
+                                apiSecret: String,
+                                tokenSecret: String? = nil) -> String {
+
+        let signatureBaseString = signatureBaseString(for: request, parameters: parameters)
+        let signingKey = "\(percentEncode(apiSecret))&\(percentEncode(tokenSecret ?? ""))"
+        let signature = hmacSha(for: signatureBaseString, with: signingKey)
+
+        return signature
     }
     
     private static var nonce: String { UUID().uuidString }

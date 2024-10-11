@@ -10,7 +10,7 @@
 		431DD49A2CB9847E0008D5EF /* OAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DD4992CB9847E0008D5EF /* OAuthHelper.swift */; };
 		431DD49F2CB994510008D5EF /* OAuthHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DD49E2CB994510008D5EF /* OAuthHelperTests.swift */; };
 		431DD4A22CB9969B0008D5EF /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 431DD4A12CB9969B0008D5EF /* OpenAISwift */; };
-		431DD4A42CB99DB30008D5EF /* DiscogsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DD4A32CB99DAC0008D5EF /* DiscogsResponseModel.swift */; };
+		431DD4A62CB9B3620008D5EF /* DiscogsAccessTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DD4A52CB9B3620008D5EF /* DiscogsAccessTokenUseCase.swift */; };
 		432A54B82CAB662B00BC79F0 /* DiscogsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432A54B72CAB662B00BC79F0 /* DiscogsService.swift */; };
 		433369F42C87F455004D64A4 /* GenAiServiceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */; };
 		433369F62C87F63E004D64A4 /* OpenAiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F52C87F63E004D64A4 /* OpenAiService.swift */; };
@@ -20,7 +20,7 @@
 		43529AED2CB8257F00846F1C /* GenAiUiResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43529AE92CB8257F00846F1C /* GenAiUiResponseView.swift */; };
 		43529AEE2CB8257F00846F1C /* GenAiUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43529AEA2CB8257F00846F1C /* GenAiUiView.swift */; };
 		43529AEF2CB8257F00846F1C /* GenAiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43529AEB2CB8257F00846F1C /* GenAiViewController.swift */; };
-		43529AF32CB825C100846F1C /* DiscogsAuthenticateUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43529AF22CB825C100846F1C /* DiscogsAuthenticateUseCase.swift */; };
+		43529AF32CB825C100846F1C /* DiscogsRequestTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43529AF22CB825C100846F1C /* DiscogsRequestTokenUseCase.swift */; };
 		43529AF52CB8265600846F1C /* DiscogsCollectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43529AF42CB8265600846F1C /* DiscogsCollectionUseCase.swift */; };
 		43529AFA2CB826EA00846F1C /* DiscogsAuthResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43529AF92CB826EA00846F1C /* DiscogsAuthResponseModel.swift */; };
 		43529AFC2CB8275D00846F1C /* DiscogsCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43529AFB2CB8275D00846F1C /* DiscogsCollectionModel.swift */; };
@@ -37,6 +37,7 @@
 		43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C2D2C84E40500960C96 /* GeminiService.swift */; };
 		4368A8C62CA74AAC00034E55 /* GenAiDomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */; };
 		438CB91F2CA793F80096A101 /* GenAiPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */; };
+		43C6F96D2CB9C50000D44B2D /* DiscogsUserCollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F96C2CB9C4EF00D44B2D /* DiscogsUserCollectionResponse.swift */; };
 		43C7A9A32CB87C7F007492B3 /* KeyChainHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7A9A22CB87C7F007492B3 /* KeyChainHandler.swift */; };
 		43E3DCD12C86429B00444235 /* GenAiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD02C86429B00444235 /* GenAiResponseModel.swift */; };
 		43E3DCD42C86432A00444235 /* GenAiResponseEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3DCD32C86432A00444235 /* GenAiResponseEntryModel.swift */; };
@@ -76,7 +77,7 @@
 /* Begin PBXFileReference section */
 		431DD4992CB9847E0008D5EF /* OAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthHelper.swift; sourceTree = "<group>"; };
 		431DD49E2CB994510008D5EF /* OAuthHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthHelperTests.swift; sourceTree = "<group>"; };
-		431DD4A32CB99DAC0008D5EF /* DiscogsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsResponseModel.swift; sourceTree = "<group>"; };
+		431DD4A52CB9B3620008D5EF /* DiscogsAccessTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsAccessTokenUseCase.swift; sourceTree = "<group>"; };
 		432A54B12CAA51B200BC79F0 /* PortfolioTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PortfolioTests.xctestplan; sourceTree = "<group>"; };
 		432A54B72CAB662B00BC79F0 /* DiscogsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsService.swift; sourceTree = "<group>"; };
 		433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceOptions.swift; sourceTree = "<group>"; };
@@ -87,7 +88,7 @@
 		43529AE92CB8257F00846F1C /* GenAiUiResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiUiResponseView.swift; sourceTree = "<group>"; };
 		43529AEA2CB8257F00846F1C /* GenAiUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiUiView.swift; sourceTree = "<group>"; };
 		43529AEB2CB8257F00846F1C /* GenAiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiViewController.swift; sourceTree = "<group>"; };
-		43529AF22CB825C100846F1C /* DiscogsAuthenticateUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsAuthenticateUseCase.swift; sourceTree = "<group>"; };
+		43529AF22CB825C100846F1C /* DiscogsRequestTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsRequestTokenUseCase.swift; sourceTree = "<group>"; };
 		43529AF42CB8265600846F1C /* DiscogsCollectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionUseCase.swift; sourceTree = "<group>"; };
 		43529AF92CB826EA00846F1C /* DiscogsAuthResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsAuthResponseModel.swift; sourceTree = "<group>"; };
 		43529AFB2CB8275D00846F1C /* DiscogsCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsCollectionModel.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		43608C2D2C84E40500960C96 /* GeminiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiDomainTests.swift; sourceTree = "<group>"; };
 		438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiPresentationTests.swift; sourceTree = "<group>"; };
+		43C6F96C2CB9C4EF00D44B2D /* DiscogsUserCollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsUserCollectionResponse.swift; sourceTree = "<group>"; };
 		43C7A9A22CB87C7F007492B3 /* KeyChainHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainHandler.swift; sourceTree = "<group>"; };
 		43E3DCD02C86429B00444235 /* GenAiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiResponseModel.swift; sourceTree = "<group>"; };
 		43E3DCD32C86432A00444235 /* GenAiResponseEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiResponseEntryModel.swift; sourceTree = "<group>"; };
@@ -203,10 +205,10 @@
 		432A54B52CAB659800BC79F0 /* Discogs */ = {
 			isa = PBXGroup;
 			children = (
-				431DD4A32CB99DAC0008D5EF /* DiscogsResponseModel.swift */,
 				43529B092CB82B7400846F1C /* DiscogsDataSource.swift */,
 				43529B0B2CB82C0800846F1C /* DiscogsRepository.swift */,
 				432A54B72CAB662B00BC79F0 /* DiscogsService.swift */,
+				43C6F96C2CB9C4EF00D44B2D /* DiscogsUserCollectionResponse.swift */,
 				43C7A9A22CB87C7F007492B3 /* KeyChainHandler.swift */,
 				431DD4992CB9847E0008D5EF /* OAuthHelper.swift */,
 				43529B022CB82A4A00846F1C /* Protocol */,
@@ -217,7 +219,8 @@
 		43529AF12CB825B800846F1C /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				43529AF22CB825C100846F1C /* DiscogsAuthenticateUseCase.swift */,
+				43529AF22CB825C100846F1C /* DiscogsRequestTokenUseCase.swift */,
+				431DD4A52CB9B3620008D5EF /* DiscogsAccessTokenUseCase.swift */,
 				43529AF42CB8265600846F1C /* DiscogsCollectionUseCase.swift */,
 			);
 			path = UseCase;
@@ -617,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43C7A9A32CB87C7F007492B3 /* KeyChainHandler.swift in Sources */,
+				43C6F96D2CB9C50000D44B2D /* DiscogsUserCollectionResponse.swift in Sources */,
 				43E8B4C12C86313000C3C16F /* GenAiView.swift in Sources */,
 				43E8B4C32C86313E00C3C16F /* GenAiViewModel.swift in Sources */,
 				43E8B4B52C862F0600C3C16F /* ArchitecturePresentationGuidance.swift in Sources */,
@@ -626,10 +630,10 @@
 				433369FA2C8800AC004D64A4 /* GenAiServiceProtocol.swift in Sources */,
 				43E8B4BD2C86308400C3C16F /* GenAiDataSource.swift in Sources */,
 				43E8B4B12C862DFF00C3C16F /* ArchitectureDomainGuidance.swift in Sources */,
+				431DD4A62CB9B3620008D5EF /* DiscogsAccessTokenUseCase.swift in Sources */,
 				43529AFC2CB8275D00846F1C /* DiscogsCollectionModel.swift in Sources */,
 				43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */,
 				43E8B4CB2C86355700C3C16F /* GenAiDataSourceProtocol.swift in Sources */,
-				431DD4A42CB99DB30008D5EF /* DiscogsResponseModel.swift in Sources */,
 				433369F62C87F63E004D64A4 /* OpenAiService.swift in Sources */,
 				43529B062CB82A6300846F1C /* DiscogsDataSourceProtocol.swift in Sources */,
 				43529B072CB82A6300846F1C /* DiscogsRepositoryProtocol.swift in Sources */,
@@ -647,7 +651,7 @@
 				43529B0A2CB82B7400846F1C /* DiscogsDataSource.swift in Sources */,
 				43E8B4D02C8638E200C3C16F /* GenAiGetResponseUseCase.swift in Sources */,
 				43529B0C2CB82C0800846F1C /* DiscogsRepository.swift in Sources */,
-				43529AF32CB825C100846F1C /* DiscogsAuthenticateUseCase.swift in Sources */,
+				43529AF32CB825C100846F1C /* DiscogsRequestTokenUseCase.swift in Sources */,
 				43608BFF2C84E3AB00960C96 /* PortfolioApp.swift in Sources */,
 				43E3DCD42C86432A00444235 /* GenAiResponseEntryModel.swift in Sources */,
 				43E8B4B82C86303600C3C16F /* GenAiPromptModel.swift in Sources */,
