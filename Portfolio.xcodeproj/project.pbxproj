@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		431DD49A2CB9847E0008D5EF /* OAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DD4992CB9847E0008D5EF /* OAuthHelper.swift */; };
+		431DD49F2CB994510008D5EF /* OAuthHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DD49E2CB994510008D5EF /* OAuthHelperTests.swift */; };
+		431DD4A22CB9969B0008D5EF /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 431DD4A12CB9969B0008D5EF /* OpenAISwift */; };
+		431DD4A42CB99DB30008D5EF /* DiscogsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DD4A32CB99DAC0008D5EF /* DiscogsResponseModel.swift */; };
 		432A54B82CAB662B00BC79F0 /* DiscogsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432A54B72CAB662B00BC79F0 /* DiscogsService.swift */; };
 		433369F42C87F455004D64A4 /* GenAiServiceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */; };
 		433369F62C87F63E004D64A4 /* OpenAiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433369F52C87F63E004D64A4 /* OpenAiService.swift */; };
@@ -29,8 +32,8 @@
 		43608BFF2C84E3AB00960C96 /* PortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608BFE2C84E3AB00960C96 /* PortfolioApp.swift */; };
 		43608C052C84E3AC00960C96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43608C042C84E3AC00960C96 /* Assets.xcassets */; };
 		43608C092C84E3AC00960C96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43608C082C84E3AC00960C96 /* Preview Assets.xcassets */; };
-		43608C1D2C84E3AC00960C96 /* PortfolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1C2C84E3AC00960C96 /* PortfolioUITests.swift */; };
-		43608C1F2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */; };
+		43608C1D2C84E3AC00960C96 /* PortfolioGenAiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1C2C84E3AC00960C96 /* PortfolioGenAiUITests.swift */; };
+		43608C1F2C84E3AC00960C96 /* PortfolioGenAiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1E2C84E3AC00960C96 /* PortfolioGenAiUITestsLaunchTests.swift */; };
 		43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C2D2C84E40500960C96 /* GeminiService.swift */; };
 		4368A8C62CA74AAC00034E55 /* GenAiDomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */; };
 		438CB91F2CA793F80096A101 /* GenAiPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */; };
@@ -72,6 +75,8 @@
 
 /* Begin PBXFileReference section */
 		431DD4992CB9847E0008D5EF /* OAuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthHelper.swift; sourceTree = "<group>"; };
+		431DD49E2CB994510008D5EF /* OAuthHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthHelperTests.swift; sourceTree = "<group>"; };
+		431DD4A32CB99DAC0008D5EF /* DiscogsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsResponseModel.swift; sourceTree = "<group>"; };
 		432A54B12CAA51B200BC79F0 /* PortfolioTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PortfolioTests.xctestplan; sourceTree = "<group>"; };
 		432A54B72CAB662B00BC79F0 /* DiscogsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsService.swift; sourceTree = "<group>"; };
 		433369F32C87F455004D64A4 /* GenAiServiceOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiServiceOptions.swift; sourceTree = "<group>"; };
@@ -98,8 +103,8 @@
 		43608C082C84E3AC00960C96 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43608C0E2C84E3AC00960C96 /* PortfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43608C182C84E3AC00960C96 /* PortfolioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43608C1C2C84E3AC00960C96 /* PortfolioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioUITests.swift; sourceTree = "<group>"; };
-		43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		43608C1C2C84E3AC00960C96 /* PortfolioGenAiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioGenAiUITests.swift; sourceTree = "<group>"; };
+		43608C1E2C84E3AC00960C96 /* PortfolioGenAiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioGenAiUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		43608C2B2C84E3E500960C96 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		43608C2D2C84E40500960C96 /* GeminiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiDomainTests.swift; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43F0379D2C84E7C60057958B /* Networking in Frameworks */,
+				431DD4A22CB9969B0008D5EF /* OpenAISwift in Frameworks */,
 				43F037A02C84E7D90057958B /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +155,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		431DD49B2CB9940C0008D5EF /* GenAi */ = {
+			isa = PBXGroup;
+			children = (
+				438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */,
+				433369FC2C880A8A004D64A4 /* GenAiDataTests.swift */,
+				4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */,
+			);
+			path = GenAi;
+			sourceTree = "<group>";
+		};
+		431DD49C2CB994190008D5EF /* GenAi */ = {
+			isa = PBXGroup;
+			children = (
+				43608C1C2C84E3AC00960C96 /* PortfolioGenAiUITests.swift */,
+				43608C1E2C84E3AC00960C96 /* PortfolioGenAiUITestsLaunchTests.swift */,
+			);
+			path = GenAi;
+			sourceTree = "<group>";
+		};
+		431DD49D2CB994270008D5EF /* Discogs */ = {
+			isa = PBXGroup;
+			children = (
+				431DD49E2CB994510008D5EF /* OAuthHelperTests.swift */,
+			);
+			path = Discogs;
+			sourceTree = "<group>";
+		};
 		432A54B32CAB657400BC79F0 /* Discogs */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +203,7 @@
 		432A54B52CAB659800BC79F0 /* Discogs */ = {
 			isa = PBXGroup;
 			children = (
+				431DD4A32CB99DAC0008D5EF /* DiscogsResponseModel.swift */,
 				43529B092CB82B7400846F1C /* DiscogsDataSource.swift */,
 				43529B0B2CB82C0800846F1C /* DiscogsRepository.swift */,
 				432A54B72CAB662B00BC79F0 /* DiscogsService.swift */,
@@ -276,9 +310,8 @@
 		43608C112C84E3AC00960C96 /* PortfolioUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */,
-				433369FC2C880A8A004D64A4 /* GenAiDataTests.swift */,
-				4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */,
+				431DD49D2CB994270008D5EF /* Discogs */,
+				431DD49B2CB9940C0008D5EF /* GenAi */,
 			);
 			path = PortfolioUnitTests;
 			sourceTree = "<group>";
@@ -286,8 +319,7 @@
 		43608C1B2C84E3AC00960C96 /* PortfolioUITests */ = {
 			isa = PBXGroup;
 			children = (
-				43608C1C2C84E3AC00960C96 /* PortfolioUITests.swift */,
-				43608C1E2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift */,
+				431DD49C2CB994190008D5EF /* GenAi */,
 			);
 			path = PortfolioUITests;
 			sourceTree = "<group>";
@@ -463,6 +495,7 @@
 			packageProductDependencies = (
 				43F0379C2C84E7C60057958B /* Networking */,
 				43F0379F2C84E7D90057958B /* GoogleGenerativeAI */,
+				431DD4A12CB9969B0008D5EF /* OpenAISwift */,
 			);
 			productName = Portfolio;
 			productReference = 43608BFB2C84E3AB00960C96 /* Portfolio.app */;
@@ -539,6 +572,7 @@
 			packageReferences = (
 				43F0379E2C84E7D90057958B /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 				43FBD0372CA9FC4F00D104D0 /* XCLocalSwiftPackageReference "Networking" */,
+				431DD4A02CB996810008D5EF /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 43608BFC2C84E3AB00960C96 /* Products */;
 			projectDirPath = "";
@@ -595,6 +629,7 @@
 				43529AFC2CB8275D00846F1C /* DiscogsCollectionModel.swift in Sources */,
 				43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */,
 				43E8B4CB2C86355700C3C16F /* GenAiDataSourceProtocol.swift in Sources */,
+				431DD4A42CB99DB30008D5EF /* DiscogsResponseModel.swift in Sources */,
 				433369F62C87F63E004D64A4 /* OpenAiService.swift in Sources */,
 				43529B062CB82A6300846F1C /* DiscogsDataSourceProtocol.swift in Sources */,
 				43529B072CB82A6300846F1C /* DiscogsRepositoryProtocol.swift in Sources */,
@@ -625,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				438CB91F2CA793F80096A101 /* GenAiPresentationTests.swift in Sources */,
+				431DD49F2CB994510008D5EF /* OAuthHelperTests.swift in Sources */,
 				4368A8C62CA74AAC00034E55 /* GenAiDomainTests.swift in Sources */,
 				433369FD2C880A8A004D64A4 /* GenAiDataTests.swift in Sources */,
 			);
@@ -634,8 +670,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43608C1D2C84E3AC00960C96 /* PortfolioUITests.swift in Sources */,
-				43608C1F2C84E3AC00960C96 /* PortfolioUITestsLaunchTests.swift in Sources */,
+				43608C1D2C84E3AC00960C96 /* PortfolioGenAiUITests.swift in Sources */,
+				43608C1F2C84E3AC00960C96 /* PortfolioGenAiUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,6 +1032,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		431DD4A02CB996810008D5EF /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
 		43F0379E2C84E7D90057958B /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google-gemini/generative-ai-swift.git";
@@ -1007,6 +1051,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		431DD4A12CB9969B0008D5EF /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 431DD4A02CB996810008D5EF /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
 		43F0379C2C84E7C60057958B /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;

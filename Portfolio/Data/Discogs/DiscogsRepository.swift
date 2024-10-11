@@ -11,9 +11,9 @@ struct DiscogsRepository { }
 
 extension DiscogsRepository: DiscogsRepositoryProtocol {
     // MARK: - Authentication
-    static var credential: DiscogsCredential {
-        get async throws {
-            return try await DiscogsService.credential()
-        }
-    }
+//    static var credential: DiscogsCredential {
+//        get async throws {
+//            return try await DiscogsService.credential()
+//        }
+//    }
 }

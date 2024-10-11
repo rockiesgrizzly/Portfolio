@@ -16,57 +16,50 @@ extension OAuthHelper {
     
     // MARK: - Public
     
-    func requestToken(fromUrl url: URL, key: String, secret: String) async throws -> String {
+    ///  Send a GET request to the Discogs request token URL
+    static func requestToken(fromUrl url: URL, key: String, secret: String, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> String {
         var request = URLRequest(url: url)
         let parameters = oAuthParameters(key: key, secret: secret)
-        let signature = signature(for: request, parameters: parameters, consumerSecret: secret)
+        let signature = signature(parameters: parameters)
         
         let authHeader = authorizationHeader(from: parameters, signature: signature)
         request.setValue(authHeader, forHTTPHeaderField: "Authorization")
         addUserAgent(to: &request)
         
-        let data = try await Request<Data>.asyncGet(request)
+        let responseString = try await StringRequest.asyncGet(request, session: session)
+        guard let token = token(from: responseString, key: "oauth_token") else { throw HelperError.noData}
         
-        if let data, let responseString = String(data: data, encoding: .utf8),
-           let requestToken = token(from: responseString) {
-            return requestToken
-        } else {
-            throw HelperError.invalidResponse
-        }
+        return token
     }
     
-    func accessToken(fromUrl url: URL, key: String, secret: String, requestToken: String, verifier: String) async throws -> (token: String, secret: String) {
+    
+    static func accessToken(fromUrl url: URL, key: String, secret: String, requestToken: String, verifier: String, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> (token: String, secret: String) {
         var request = URLRequest(url: url)
-        request.httpMethod = "POST" // Access token request is a POST request
+        request.httpMethod = "POST"
 
         var parameters = oAuthParameters(key: key, secret: secret)
         parameters["oauth_token"] = requestToken
         parameters["oauth_verifier"] = verifier
 
         // Calculate the signature with the request token secret
-        let signature = signature(for: request, parameters: parameters, consumerSecret: secret, tokenSecret: requestToken) // Include tokenSecret
+        let signature = signature(parameters: parameters)
 
         let authHeader = authorizationHeader(from: parameters, signature: signature)
         request.setValue(authHeader, forHTTPHeaderField: "Authorization")
         addUserAgent(to: &request)
 
-        let data = try await Request<Data>.asyncGet(request)
-
-        guard let data,
-              let responseString = String(data: data, encoding: .utf8) else {
-            throw HelperError.invalidResponse
-        }
+        let responseString = try await StringRequest.asyncGet(request, session: session)
 
         // Extract the access token and secret from the response
-        guard let accessToken = token(from: responseString),
-              let accessTokenSecret = token(from: responseString) else {
+        guard let accessToken = token(from: responseString, key: "oauth_token"),
+              let accessTokenSecret = token(from: responseString, key: "oauth_token_secret") else {
             throw HelperError.missingToken
         }
 
         return (accessToken, accessTokenSecret)
     }
     
-    private func addUserAgent(to request: inout URLRequest) {
+    private static func addUserAgent(to request: inout URLRequest) {
         request.setValue("Portfolio/1.0.0", forHTTPHeaderField: "User-Agent")
     }
 
@@ -80,56 +73,44 @@ extension OAuthHelper {
     ///    oauth_signature_method="PLAINTEXT",
     ///    oauth_timestamp="current_timestamp",
     ///    oauth_callback="your_callback"
-    private func oAuthParameters(key: String, secret: String) -> [String: String] {
+    static func oAuthParameters(key: String, secret: String) -> [String: String] {
         var parameters = [String: String]()
 
         parameters["oauth_consumer_key"] = key
         parameters["oauth_nonce"] = nonce
-        parameters["oauth_signature_method"] = "HMAC-SHA1"
+        parameters["oauth_signature_method"] = "PLAINTEXT"
         parameters["oauth_timestamp"] = String(Int(Date().timeIntervalSince1970))
         parameters["oauth_callback"] = PortfolioApp.oauthCallbackUrl
+        parameters["oauth_signature"] = "\(percentEncode(secret))&"
 
         return parameters
     }
 
-    private func signature(for request: URLRequest,
-                            parameters: [String: String],
-                            consumerSecret: String,
-                            tokenSecret: String? = nil) -> String {
-
-        let signatureBaseString = signatureBaseString(for: request, parameters: parameters)
-        let signingKey = signingKey(consumerSecret: consumerSecret, tokenSecret: tokenSecret)
-        let signature = hmacSha(for: signatureBaseString, with: signingKey)
-
-        return signature
+    static func signature(parameters: [String: String]) -> String {
+        parameters["oauth_signature"] ?? ""
     }
     
-    private var nonce: String { UUID().uuidString }
+    private static var nonce: String { UUID().uuidString }
     
-    private func signatureBaseString(for request: URLRequest, parameters: [String: String]) -> String {
+    private static func signatureBaseString(for request: URLRequest, parameters: [String: String]) -> String {
         let method = request.httpMethod!.uppercased()
-        guard let urlString = request.url?.absoluteString else {
-            // Handle URL error (e.g., return an empty string or throw an error)
+        
+        // Construct the base URL without query parameters
+        guard let url = request.url,
+              var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return ""
         }
-        let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        
+        urlComponents.query = nil
+        let encodedURL = urlComponents.url?.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+
         let sortedParameters = parameters.sorted { $0.key < $1.key }
         let parameterString = sortedParameters.map { "\(percentEncode($0.key))=\(percentEncode($0.value))" }.joined(separator: "&")
         let encodedParameters = parameterString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        
+
         return "\(method)&\(encodedURL)&\(encodedParameters)"
     }
     
-    private func signingKey(consumerSecret: String, tokenSecret: String? = nil) -> String {
-        if let tokenSecret = tokenSecret {
-            return "\(percentEncode(consumerSecret))&\(percentEncode(tokenSecret))"
-        } else {
-            return "\(percentEncode(consumerSecret))&"
-        }
-    }
-    
-    private func hmacSha(for text: String, with key: String) -> String {
+    private static func hmacSha(for text: String, with key: String) -> String {
         let keyData = Data(key.utf8)
         let textData = Data(text.utf8)
 
@@ -137,7 +118,7 @@ extension OAuthHelper {
         return Data(hmac).base64EncodedString()
     }
     
-    private func percentEncode(_ string: String) -> String {
+    private static func percentEncode(_ string: String) -> String {
         return string.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
             .replacingOccurrences(of: "!", with: "%21")
             .replacingOccurrences(of: "'", with: "%27")
@@ -148,21 +129,21 @@ extension OAuthHelper {
     
     
     // Helper functions to extract tokens from response strings
-    private func token(from responseString: String) -> String? {
+    private static func token(from responseString: String, key: String) -> String? {
         // Implement logic to parse the response and extract the oauth_token
         // This will involve splitting the response string by '&' and '=' to find the value associated with 'oauth_token'
         // Example:
         let components = responseString.components(separatedBy: "&")
         for component in components {
             let keyValuePair = component.components(separatedBy: "=")
-            if keyValuePair.count == 2 && keyValuePair[0] == "oauth_token" {
+            if keyValuePair.count == 2 && keyValuePair[0] == key {
                 return keyValuePair[1]
             }
         }
         return nil
     }
     
-    private func verifier(from callbackURL: URL) -> String? {
+    private static func verifier(from callbackURL: URL) -> String? {
         // Implement logic to parse the callback URL and extract the oauth_verifier
         // This will likely involve getting the query parameters from the URL and finding the value associated with 'oauth_verifier'
         // Example:
@@ -171,7 +152,7 @@ extension OAuthHelper {
         return queryItems.first(where: { $0.name == "oauth_verifier" })?.value
     }
     
-    private func authorizationHeader(from parameters: [String: String], signature: String) -> String {
+    static func authorizationHeader(from parameters: [String: String], signature: String) -> String {
         var authHeader = "OAuth "
         let sortedParameters = parameters.sorted { $0.key < $1.key }
         for (index, (key, value)) in sortedParameters.enumerated() {
