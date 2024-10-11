@@ -10,6 +10,8 @@ import SwiftData
 
 @main
 struct PortfolioApp: App {
+    static let oauthCallbackUrl = "portfolio://oauth-callback"
+    
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -21,6 +23,11 @@ struct PortfolioApp: App {
                     .tabItem {
                         Label("UIKit GenAi", systemImage: "circle")
                     }
+            }
+            .onOpenURL { url in
+                if url.host == PortfolioApp.oauthCallbackUrl {
+                    assertionFailure("implement discogs view")
+                }
             }
         }
     }

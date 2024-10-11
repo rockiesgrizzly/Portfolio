@@ -13,17 +13,7 @@ extension DiscogsRepository: DiscogsRepositoryProtocol {
     // MARK: - Authentication
     static var credential: DiscogsCredential {
         get async throws {
-            let discogsServiceCredential = try await DiscogsService.credential()
-            if let credential = discogsServiceCredential.credential {
-                return credential
-            } else if let error = discogsServiceCredential.error {
-                throw error
-            }
-            throw RepositoryError.invalidCredential
+            return try await DiscogsService.credential()
         }
-    }
-    
-    enum RepositoryError: Error {
-        case invalidCredential
     }
 }

@@ -6,7 +6,7 @@
 //
 
 protocol DiscogsCollectionUseCase {
-    static func execute() async throws -> Result<DiscogsCollectionModel, Error>
+//    static func execute() async throws -> Result<DiscogsCollectionModel, Error>
 }
 
 struct DiscogsCollectionUseCaseImplementation: DiscogsCollectionUseCase {
@@ -17,5 +17,5 @@ struct DiscogsCollectionUseCaseImplementation: DiscogsCollectionUseCase {
 //        } catch {
 //            return .failure(error)
 //        }
-    }
+//    }
 }

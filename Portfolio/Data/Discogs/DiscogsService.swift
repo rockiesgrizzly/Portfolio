@@ -31,6 +31,10 @@ struct DiscogsCredential: Codable {
     }
 }
 
+struct DiscogsUserIdentity: Codable {
+    let username: String
+}
+
 /// Service retrieving token and user collection from Discogs APi https://www.discogs.com/developers/#page:home,header:home-quickstart
 struct DiscogsService {
     private static let authUrl = "https://www.discogs.com/oauth/authorize"
@@ -39,6 +43,7 @@ struct DiscogsService {
     private static let accessTokenUrlSuffix = "/oauth/access_token"
     
     enum ServiceError: Error {
+        case decodingError
         case invalidResponse
         case invalidData
         case invalidJSON
@@ -61,26 +66,60 @@ struct DiscogsService {
         return apiKey
     }
     
-    static func credential() async throws -> (credential: DiscogsCredential?, error: Error?) {
+    static func credential() async throws -> DiscogsCredential {
         let oAuthSwift = OAuth1Swift(consumerKey: apiKey,
                                      consumerSecret: apiSecret,
                                      requestTokenUrl: apiBaseUrl + requestTokenUrlSuffix,
                                      authorizeUrl: authUrl,
                                      accessTokenUrl: apiBaseUrl + accessTokenUrlSuffix)
         
-        guard let rootViewController = await UIApplication.shared.topWindow?.rootViewController else { return (nil, ServiceError.invalidUiApplicationKeyWindow) }
+        guard let rootViewController = await UIApplication.shared.topWindow?.rootViewController else { throw ServiceError.invalidUiApplicationKeyWindow }
         oAuthSwift.authorizeURLHandler = SafariURLHandler(viewController: rootViewController, oauthSwift: oAuthSwift)
         
-        let callbackUrl = URL(string: "oauth-swift://oauth-callback/discogs")!
+        guard let callbackUrl = URL(string: "oauth-swift://oauth-callback/discogs") else { throw ServiceError.invalidURL }
         
-        return await withCheckedContinuation { continuation in
+        return try await withCheckedThrowingContinuation { continuation in
             oAuthSwift.authorize(withCallbackURL: callbackUrl) { result in
                 switch result {
                 case .success(let (credential, _, _)):
                     let credential = DiscogsCredential.from(credential)
-                    continuation.resume(returning: (credential, nil))
+                    continuation.resume(returning: credential)
                 case .failure(let error):
-                    continuation.resume(returning: (nil, error))
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+        
+//        Content-Type: application/x-www-form-urlencoded
+//        Authorization:
+//                OAuth oauth_consumer_key="your_consumer_key",
+//                oauth_nonce="random_string_or_timestamp",
+//                oauth_signature="your_consumer_secret&",
+//                oauth_signature_method="PLAINTEXT",
+//                oauth_timestamp="current_timestamp",
+//                oauth_callback="your_callback"
+//        User-Agent: some_user_agent
+        
+        let consumerInfo = (key: apiKey, secret: apiSecret)
+        guard let requestTokenUrl = URL(string: apiBaseUrl + requestTokenUrlSuffix) else { throw ServiceError.invalidURL }
+        var request = URLRequest(url: requestTokenUrl)
+        
+    }
+    
+    static func username(credential: OAuthSwiftCredential) async throws -> String {
+        guard let url = URL(string: "https://api.discogs.com/oauth/identity") else { throw ServiceError.invalidURL }
+        let oAuthSwiftClient = OAuthSwiftClient(credential: credential)
+
+        return try await withCheckedThrowingContinuation { continuation in
+            oAuthSwiftClient.get(url) { result in
+                switch result {
+                case .success(let (data, _, _)):
+                    if let username = try? JSONDecoder().decode(DiscogsUserIdentity.self, from: data).username {
+                        continuation.resume(returning: username)
+                    }
+                    continuation.resume(throwing: ServiceError.decodingError)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
                 }
             }
         }
