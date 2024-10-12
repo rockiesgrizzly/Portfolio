@@ -24,8 +24,12 @@ extension DiscogsRepository: DiscogsRepositoryProtocol {
     }
     
     // TODO: username here
+    static func username(forAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> String {
+        try await DiscogsService.username(forAuthToken: authToken, andAuthTokenSecret: authTokenSecret)
+    }
     
     // MARK: - User Collection
-    
-    // TODO: collection here
+    static func userCollection(forUsername username: String, withAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> DiscogsUserCollectionResponse {
+        try await DiscogsService.userCollection(forUsername: username, withAuthToken: authToken, andAuthTokenSecret: authTokenSecret)
+    }
 }

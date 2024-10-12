@@ -23,11 +23,17 @@ struct PortfolioApp: App {
                     .tabItem {
                         Label("UIKit GenAi", systemImage: "circle")
                     }
-            }
-            .onOpenURL { url in
-                if url.host == PortfolioApp.oauthCallbackUrl {
-                    assertionFailure("implement discogs view")
-                }
+                DiscogsView()
+                    .tabItem {
+                        Label("SwiftUI DiscogsView", systemImage: "triangle")
+                    }
+                    .onOpenURL { url in
+                        if url.host == PortfolioApp.oauthCallbackUrl {
+                            assertionFailure("implement discogs view")
+                        } else {
+                            assertionFailure("deeplink not supported")
+                        }
+                    }
             }
         }
     }

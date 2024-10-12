@@ -9,28 +9,26 @@ struct DiscogsUserCollectionResponse: Codable {
     let releases: [Release]
     
     struct Release: Codable {
-        let instanceID: Int
+        let instanceId: Int
         let dateAdded: String
         let basicInformation: BasicInformation
 
         enum CodingKeys: String, CodingKey {
-            case instanceID = "instance_id"
+            case instanceId = "instance_id"
             case dateAdded = "date_added"
             case basicInformation = "basic_information"
         }
     }
 
     struct BasicInformation: Codable {
-        let id, masterID: Int
-        let masterURL: String
-        let title: String
+        let id, masterId: Int
+        let masterUrl, title: String
         let year: Int?
         
         enum CodingKeys: String, CodingKey {
-            case id
-            case masterID = "master_id"
-            case masterURL = "master_url"
-            case title, year
+            case id, title, year
+            case masterId = "master_id"
+            case masterUrl = "master_url"
         }
     }
 

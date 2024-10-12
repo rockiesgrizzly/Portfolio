@@ -83,8 +83,8 @@ struct DiscogsService: OAuthHelper {
         return identity.username
     }
     
-    static func userCollection(forUserName userName: String, withAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> DiscogsUserCollectionResponse {
-        let urlString = apiKey + String(format: allReleasesSuffix, userName)
+    static func userCollection(forUsername username: String, withAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> DiscogsUserCollectionResponse {
+        let urlString = apiKey + String(format: allReleasesSuffix, username)
         guard let url = URL(string: urlString) else { throw ServiceError.invalidURL }
         
         return try await getModel(from: url, apiKey: apiKey, apiSecret: apiSecret, authToken: authToken, authTokenSecret: authTokenSecret)
