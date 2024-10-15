@@ -12,9 +12,9 @@ protocol DiscogsUsernameUseCase {
 struct DiscogsUsernameUseCaseImplementation: DiscogsUsernameUseCase {
     static func execute() async throws -> Result<Bool, Error> {
         do {
-            let authToken = try await DiscogsDataSource.retrieveAccessToken()
-            let authTokenSecret = try await DiscogsDataSource.retrieveAccessTokenSecret()
-            let response = try await DiscogsRepository.username(forAuthToken: authToken, andAuthTokenSecret: authTokenSecret)
+            let accessToken = try await DiscogsDataSource.retrieveAccessToken()
+            let accessTokenSecret = try await DiscogsDataSource.retrieveAccessTokenSecret()
+            let response = try await DiscogsRepository.username(forAccessToken: accessToken, andAccessTokenSecret: accessTokenSecret)
             try await DiscogsDataSource.saveUsername(response)
             return .success(true)
         } catch {

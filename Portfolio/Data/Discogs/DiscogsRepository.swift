@@ -24,12 +24,17 @@ extension DiscogsRepository: DiscogsRepositoryProtocol {
     }
     
     // TODO: username here
-    static func username(forAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> String {
-        try await DiscogsService.username(forAuthToken: authToken, andAuthTokenSecret: authTokenSecret)
+    static func username(forAccessToken accessToken: String, andAccessTokenSecret accessTokenSecret: String) async throws -> String {
+        try await DiscogsService.username(forAccessToken: accessToken, andAccessTokenSecret: accessTokenSecret)
     }
     
     // MARK: - User Collection
-    static func userCollection(forUsername username: String, withAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> DiscogsUserCollectionResponse {
-        try await DiscogsService.userCollection(forUsername: username, withAuthToken: authToken, andAuthTokenSecret: authTokenSecret)
+    static func userCollection(forUsername username: String, withAccessToken accessToken: String, andAccessTokenSecret accessTokenSecret: String) async throws -> DiscogsUserCollectionResponse {
+        try await DiscogsService.userCollection(forUsername: username, withAccessToken: accessToken, andAccessTokenSecret: accessTokenSecret)
+    }
+    
+    // MARK: - Releases
+    static func releases(withId id: String, andAccessToken accessToken: String, andAccessTokenSecret accessTokenSecret: String) async throws -> DiscogsReleaseResponse {
+        try await DiscogsService.release(withId: id, withAccessToken: accessToken, andAccessTokenSecret: accessTokenSecret)
     }
 }

@@ -59,12 +59,12 @@ extension OAuthHelper {
         return (accessToken, accessTokenSecret)
     }
     
-    static func getModel<Model: Decodable>(from url: URL, apiKey: String, apiSecret: String, authToken: String, authTokenSecret: String, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> Model {
+    static func getModel<Model: Decodable>(from url: URL, apiKey: String, apiSecret: String, accessToken: String?, accessTokenSecret: String?, session: Networking.URLSessionAsycProtocol = URLSession.shared) async throws -> Model {
         var request = URLRequest(url: url)
         var parameters = oAuthParameters(apiKey: apiKey, apiSecret: apiSecret)
-        parameters["oauth_token"] = authToken
+        parameters["oauth_token"] = accessToken
 
-        let signature = getSignature(for: request, parameters: parameters, apiSecret: apiSecret, tokenSecret: authTokenSecret)
+        let signature = getSignature(for: request, parameters: parameters, apiSecret: apiSecret, tokenSecret: accessTokenSecret)
 
         let authHeader = authorizationHeader(from: parameters, signature: signature)
         request.setValue(authHeader, forHTTPHeaderField: "Authorization")

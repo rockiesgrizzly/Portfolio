@@ -86,6 +86,13 @@ struct DiscogsDataSource: DiscogsDataSourceProtocol, KeyChainHandler {
         return string
     }
     
+    // MARK: - Releases Save
+    
+    // MARK: - Releases Retrieve
+    
+    
+    // MARK: - Error
+    
     enum SourceError: Error {
         case decodingIssue
         case encodingIssue

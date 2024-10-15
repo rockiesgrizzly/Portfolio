@@ -11,4 +11,7 @@ import Foundation
 class DiscogsViewModel: ObservableObject {
     var collection: DiscogsReleasesCollection?
     
+    init() async throws {
+        let _ = try await DiscogsRequestTokenUseCaseImplementation.execute()
+    }
 }

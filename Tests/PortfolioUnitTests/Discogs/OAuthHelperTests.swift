@@ -36,20 +36,20 @@ struct OAuthHelperTests {
     }
     
     @Test static func accessTokenSucceeds() async throws {
-        let authToken = try await TestOAuthHelper.accessToken(fromUrl:  OAuthHelperTests.url, apiKey: apiKey, apiSecret: apiSecret, requestToken: "", verifier: "", session: OAuthTestAuthURLSession())
+        let accessToken = try await TestOAuthHelper.accessToken(fromUrl:  OAuthHelperTests.url, apiKey: apiKey, apiSecret: apiSecret, requestToken: "", verifier: "", session: OAuthTestAuthURLSession())
         
-        print("testAccessToken: \(authToken)")
-        #expect(authToken.token == "your_request_token")
-        #expect(authToken.secret == "your_request_token_secret")
+        print("testAccessToken: \(accessToken)")
+        #expect(accessToken.token == "your_request_token")
+        #expect(accessToken.secret == "your_request_token_secret")
     }
     
     @Test static func identitySucceeds() async throws {
-        let identity: DiscogsUserIdentity = try await TestOAuthHelper.getModel(from: OAuthHelperTests.url, apiKey: "", apiSecret: "", authToken: "", authTokenSecret: "", session: OAuthTestIdentityRLSession())
+        let identity: DiscogsUserIdentity = try await TestOAuthHelper.getModel(from: OAuthHelperTests.url, apiKey: "", apiSecret: "", accessToken: "", accessTokenSecret: "", session: OAuthTestIdentityRLSession())
         #expect(identity.username == username)
     }
     
     @Test static func userCollectionSucceeds() async throws {
-        let collection: DiscogsUserCollectionResponse = try await TestOAuthHelper.getModel(from: OAuthHelperTests.url, apiKey: "", apiSecret: "", authToken: "", authTokenSecret: "", session: OAuthTestCollectionURLSession())
+        let collection: DiscogsUserCollectionResponse = try await TestOAuthHelper.getModel(from: OAuthHelperTests.url, apiKey: "", apiSecret: "", accessToken: "", accessTokenSecret: "", session: OAuthTestCollectionURLSession())
         #expect(collection.releases.count == 2)
     }
 }

@@ -11,8 +11,9 @@ protocol DiscogsRepositoryProtocol {
     // MARK: - Authentication
     static var requestToken: String { get async throws }
     static func accessToken(for requestToken: String, and verifier: String) async throws -> (token: String, secret: String)
-    static func username(forAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> String
+    static func username(forAccessToken accessToken: String, andAccessTokenSecret accessTokenSecret: String) async throws -> String
     
     // MARK: - User Collection
-    static func userCollection(forUsername username: String, withAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> DiscogsUserCollectionResponse
+    static func userCollection(forUsername username: String, withAccessToken accessToken: String, andAccessTokenSecret accessTokenSecret: String) async throws -> DiscogsUserCollectionResponse
+    static func releases(withId id: String, andAccessToken accessToken: String, andAccessTokenSecret accessTokenSecret: String) async throws -> DiscogsReleaseResponse
 }

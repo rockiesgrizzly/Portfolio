@@ -12,10 +12,10 @@ protocol DiscogsCollectionUseCase {
 struct DiscogsCollectionUseCaseImplementation: DiscogsCollectionUseCase {
     static func execute() async throws -> Result<DiscogsReleasesCollection, Error> {
         do {
-            let authToken = try await DiscogsDataSource.retrieveAccessToken()
-            let authTokenSecret = try await DiscogsDataSource.retrieveAccessTokenSecret()
+            let accessToken = try await DiscogsDataSource.retrieveAccessToken()
+            let accessTokenSecret = try await DiscogsDataSource.retrieveAccessTokenSecret()
             let username = try await DiscogsDataSource.retrieveUsername()
-            let response = try await DiscogsRepository.userCollection(forUsername: username, withAuthToken: authToken, andAuthTokenSecret: authTokenSecret)
+            let response = try await DiscogsRepository.userCollection(forUsername: username, withAccessToken: accessToken, andAccessTokenSecret: accessTokenSecret)
             return .success(response.releasesCollection)
         } catch {
             return .failure(error)

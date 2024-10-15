@@ -35,6 +35,8 @@
 		43608C1F2C84E3AC00960C96 /* PortfolioGenAiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C1E2C84E3AC00960C96 /* PortfolioGenAiUITestsLaunchTests.swift */; };
 		43608C2E2C84E40500960C96 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43608C2D2C84E40500960C96 /* GeminiService.swift */; };
 		4368A8C62CA74AAC00034E55 /* GenAiDomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */; };
+		436D9C572CBE043500CB7F01 /* DiscogsReleaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436D9C562CBE043500CB7F01 /* DiscogsReleaseResponse.swift */; };
+		436D9C592CBE0A9D00CB7F01 /* DiscogsReleaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436D9C582CBE0A9D00CB7F01 /* DiscogsReleaseUseCase.swift */; };
 		438CB91F2CA793F80096A101 /* GenAiPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */; };
 		43C6F96D2CB9C50000D44B2D /* DiscogsUserCollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F96C2CB9C4EF00D44B2D /* DiscogsUserCollectionResponse.swift */; };
 		43C6F96F2CB9FBF400D44B2D /* DiscogsUserNameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F96E2CB9FBF400D44B2D /* DiscogsUserNameUseCase.swift */; };
@@ -110,6 +112,8 @@
 		43608C2B2C84E3E500960C96 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		43608C2D2C84E40500960C96 /* GeminiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		4368A8C52CA74AAC00034E55 /* GenAiDomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiDomainTests.swift; sourceTree = "<group>"; };
+		436D9C562CBE043500CB7F01 /* DiscogsReleaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsReleaseResponse.swift; sourceTree = "<group>"; };
+		436D9C582CBE0A9D00CB7F01 /* DiscogsReleaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsReleaseUseCase.swift; sourceTree = "<group>"; };
 		438CB91E2CA793F50096A101 /* GenAiPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenAiPresentationTests.swift; sourceTree = "<group>"; };
 		43C6F96C2CB9C4EF00D44B2D /* DiscogsUserCollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsUserCollectionResponse.swift; sourceTree = "<group>"; };
 		43C6F96E2CB9FBF400D44B2D /* DiscogsUserNameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscogsUserNameUseCase.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 				43529B0B2CB82C0800846F1C /* DiscogsRepository.swift */,
 				432A54B72CAB662B00BC79F0 /* DiscogsService.swift */,
 				43C6F96C2CB9C4EF00D44B2D /* DiscogsUserCollectionResponse.swift */,
+				436D9C562CBE043500CB7F01 /* DiscogsReleaseResponse.swift */,
 				43C7A9A22CB87C7F007492B3 /* KeyChainHandler.swift */,
 				431DD4992CB9847E0008D5EF /* OAuthHelper.swift */,
 				43529B022CB82A4A00846F1C /* Protocol */,
@@ -225,6 +230,7 @@
 			children = (
 				43529AF22CB825C100846F1C /* DiscogsRequestTokenUseCase.swift */,
 				431DD4A52CB9B3620008D5EF /* DiscogsAccessTokenUseCase.swift */,
+				436D9C582CBE0A9D00CB7F01 /* DiscogsReleaseUseCase.swift */,
 				43C6F96E2CB9FBF400D44B2D /* DiscogsUserNameUseCase.swift */,
 				43529AF42CB8265600846F1C /* DiscogsCollectionUseCase.swift */,
 			);
@@ -628,6 +634,7 @@
 				43C7A9A32CB87C7F007492B3 /* KeyChainHandler.swift in Sources */,
 				43C6F96D2CB9C50000D44B2D /* DiscogsUserCollectionResponse.swift in Sources */,
 				43E8B4C12C86313000C3C16F /* GenAiView.swift in Sources */,
+				436D9C572CBE043500CB7F01 /* DiscogsReleaseResponse.swift in Sources */,
 				43E8B4C32C86313E00C3C16F /* GenAiViewModel.swift in Sources */,
 				43E8B4B52C862F0600C3C16F /* ArchitecturePresentationGuidance.swift in Sources */,
 				43E3DCD12C86429B00444235 /* GenAiResponseModel.swift in Sources */,
@@ -653,6 +660,7 @@
 				43E3DCD62C86436100444235 /* GenAiRepositoryProtocol.swift in Sources */,
 				43E3DCD82C8643D500444235 /* GenAiResponseRepository.swift in Sources */,
 				433369F42C87F455004D64A4 /* GenAiServiceOptions.swift in Sources */,
+				436D9C592CBE0A9D00CB7F01 /* DiscogsReleaseUseCase.swift in Sources */,
 				431DD49A2CB9847E0008D5EF /* OAuthHelper.swift in Sources */,
 				43529B0A2CB82B7400846F1C /* DiscogsDataSource.swift in Sources */,
 				43E8B4D02C8638E200C3C16F /* GenAiGetResponseUseCase.swift in Sources */,

@@ -33,7 +33,8 @@ struct DiscogsService: OAuthHelper {
     private static let requestTokenUrlSuffix = "/oauth/request_token"
     private static let accessTokenUrlSuffix = "/oauth/access_token"
     private static let identitySuffix = "/oauth/identity"
-    private static let allReleasesSuffix = "/users/${username}/collection/folders/0/releases"
+    private static let allUserReleasesSuffix = "/users/${username}/collection/folders/0/releases"
+    private static let releasesSuffix = "/releases/${releaseId}"
     
     enum ServiceError: Error {
         case decodingError
@@ -75,18 +76,25 @@ struct DiscogsService: OAuthHelper {
         return try await accessToken(fromUrl: url, apiKey: apiKey, apiSecret: apiSecret, requestToken: requestToken, verifier: verifier)
     }
     
-    static func username(forAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> String {
+    static func username(forAccessToken accessToken: String, andAccessTokenSecret accessTokenSecret: String) async throws -> String {
         let urlString = apiBaseUrl + identitySuffix
         guard let url = URL(string: urlString) else { throw ServiceError.invalidURL }
         
-        let identity: DiscogsUserIdentity = try await getModel(from: url, apiKey: apiKey, apiSecret: apiSecret, authToken: authToken, authTokenSecret: authTokenSecret)
+        let identity: DiscogsUserIdentity = try await getModel(from: url, apiKey: apiKey, apiSecret: apiSecret, accessToken: accessToken, accessTokenSecret: accessTokenSecret)
         return identity.username
     }
     
-    static func userCollection(forUsername username: String, withAuthToken authToken: String, andAuthTokenSecret authTokenSecret: String) async throws -> DiscogsUserCollectionResponse {
-        let urlString = apiKey + String(format: allReleasesSuffix, username)
+    static func userCollection(forUsername username: String, withAccessToken accessToken: String?, andAccessTokenSecret accessTokenSecret: String?) async throws -> DiscogsUserCollectionResponse {
+        let urlString = apiKey + String(format: allUserReleasesSuffix, username)
         guard let url = URL(string: urlString) else { throw ServiceError.invalidURL }
         
-        return try await getModel(from: url, apiKey: apiKey, apiSecret: apiSecret, authToken: authToken, authTokenSecret: authTokenSecret)
+        return try await getModel(from: url, apiKey: apiKey, apiSecret: apiSecret, accessToken: accessToken, accessTokenSecret: accessTokenSecret)
+    }
+    
+    static func release(withId releaseId: String, withAccessToken accessToken: String?, andAccessTokenSecret accessTokenSecret: String?) async throws -> DiscogsReleaseResponse {
+        let urlString = apiKey + String(format: releasesSuffix, releaseId)
+        guard let url = URL(string: urlString) else { throw ServiceError.invalidURL }
+        
+        return try await getModel(from: url, apiKey: apiKey, apiSecret: apiSecret, accessToken: accessToken, accessTokenSecret: accessTokenSecret)
     }
 }
